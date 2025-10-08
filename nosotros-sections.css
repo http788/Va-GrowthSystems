@@ -1,0 +1,499 @@
+/* nosotros-sections.css */
+
+/* --- Sección Hero Nosotros --- */
+.nosotros-hero {
+    background-color: var(--color-background-claro);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.nosotros-hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.nosotros-hero-content {
+    max-width: 800px;
+}
+
+.nosotros-hero-tagline {
+    font-size: 1.2em;
+    color: var(--color-texto-secundario);
+    margin-bottom: 10px;
+}
+
+.nosotros-hero-title {
+    font-size: 3em;
+    color: var(--color-titulo);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.nosotros-hero-title .highlight-green {
+    color: var(--color-primario-verde); /* O tu verde específico */
+}
+
+.nosotros-hero-description {
+    font-size: 1.1em;
+    color: var(--color-texto-parrafo);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.nosotros-hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Sección Misión y Visión --- */
+.mission-vision-section {
+    padding: 80px 0;
+    background-color: var(--color-fondo-blanco);
+}
+
+.mission-vision-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.mission-vision-card {
+    background-color: var(--color-fondo-claro);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    flex: 1 1 calc(50% - 30px); /* Dos columnas en desktop */
+    max-width: 500px;
+    text-align: center;
+}
+
+.mission-vision-card h2 {
+    color: var(--color-primario-azul);
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.mission-vision-card p {
+    color: var(--color-texto-parrafo);
+    line-height: 1.7;
+}
+
+/* --- Sección Nuestros Valores --- */
+.our-values-section {
+    padding: 80px 0;
+    background-color: var(--color-background-claro);
+    text-align: center;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-card {
+    background-color: var(--color-fondo-blanco);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-card i {
+    font-size: 3em;
+    color: var(--color-primario-verde);
+    margin-bottom: 20px;
+}
+
+.value-card h3 {
+    font-size: 1.5em;
+    color: var(--color-titulo);
+    margin-bottom: 10px;
+}
+
+.value-card p {
+    color: var(--color-texto-parrafo);
+}
+
+/* --- Sección ¿Por Qué Elegirnos? --- */
+.why-choose-us-section {
+    padding: 80px 0;
+    background-color: var(--color-fondo-blanco);
+    text-align: center;
+}
+
+.why-choose-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.why-choose-us-card {
+    background-color: var(--color-fondo-claro);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.why-choose-us-card:hover {
+    transform: translateY(-10px);
+}
+
+.why-choose-us-card i {
+    font-size: 3.5em;
+    color: var(--color-primario-azul);
+    margin-bottom: 20px;
+}
+
+.why-choose-us-card h3 {
+    font-size: 1.6em;
+    color: var(--color-titulo);
+    margin-bottom: 10px;
+}
+
+.why-choose-us-card p {
+    color: var(--color-texto-parrafo);
+}
+
+/* --- Sección ¿Qué Haremos por Ti? --- */
+.what-we-do-section {
+    padding: 80px 0;
+    background-color: var(--color-background-claro);
+}
+
+.what-we-do-section .container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.what-we-do-content {
+    flex: 1;
+    max-width: 700px;
+    text-align: left;
+}
+
+.what-we-do-content p {
+    margin-bottom: 15px;
+    color: var(--color-texto-parrafo);
+    line-height: 1.6;
+}
+
+.what-we-do-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.what-we-do-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    color: var(--color-texto-parrafo);
+}
+
+.what-we-do-list li i {
+    color: var(--color-primario-verde);
+    margin-right: 10px;
+    font-size: 1.2em;
+    margin-top: 4px; /* Alineación con el texto */
+}
+
+.what-we-do-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.what-we-do-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Sección Metodología de Trabajo --- */
+.methodology-section {
+    padding: 80px 0;
+    background-color: var(--color-fondo-blanco);
+    text-align: center;
+}
+
+.methodology-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.methodology-step {
+    background-color: var(--color-fondo-claro);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.methodology-step h3 {
+    font-size: 1.6em;
+    color: var(--color-titulo);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.methodology-step h3 i {
+    color: var(--color-primario-azul);
+    font-size: 1.5em;
+}
+
+.methodology-step p {
+    color: var(--color-texto-parrafo);
+}
+
+.methodology-section .btn-demo-free {
+    margin-top: 50px;
+}
+
+/* --- Sección Testimonios --- */
+.testimonials-section {
+    padding: 80px 0;
+    background-color: var(--color-background-claro);
+    text-align: center;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonial-card {
+    background-color: var(--color-fondo-blanco);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: var(--color-texto-parrafo);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: var(--color-titulo);
+    text-align: right;
+}
+
+/* --- Sección FAQ (Preguntas Frecuentes) --- */
+.faq-section {
+    padding: 80px 0;
+    background-color: var(--color-fondo-blanco);
+    text-align: center;
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+.faq-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.faq-question {
+    background-color: var(--color-fondo-claro);
+    color: var(--color-titulo);
+    padding: 20px 25px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #e9e9e9;
+}
+
+.faq-question::after {
+    content: '\002B'; /* Plus sign */
+    font-size: 1.5em;
+    color: var(--color-primario-azul);
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    content: "\2212"; /* Minus sign */
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    background-color: var(--color-fondo-blanco);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 0 25px; /* Padding horizontal fijo */
+}
+
+.faq-answer.open {
+    max-height: fit-content; /* Se ajustará con JS */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.faq-answer p {
+    color: var(--color-texto-parrafo);
+    line-height: 1.6;
+}
+
+/* --- Estilos para la bandera de idioma --- */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    /* Quitamos el gap si solo hay una bandera, pero mantener el flex para centrado */
+}
+
+.language-flag {
+    width: 30px; /* Tamaño de la bandera */
+    height: auto;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.language-flag:hover {
+    transform: scale(1.1);
+}
+
+/* --- Media Queries (Responsividad) --- */
+
+/* Tablet y pantallas más pequeñas */
+@media (max-width: 992px) {
+    .nosotros-hero .container {
+        flex-direction: column;
+    }
+
+    .nosotros-hero-title {
+        font-size: 2.5em;
+    }
+
+    .mission-vision-card {
+        flex: 1 1 calc(100% - 30px); /* Una columna en tablets */
+    }
+
+    .what-we-do-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .what-we-do-content, .what-we-do-image {
+        max-width: 100%;
+    }
+
+    .what-we-do-list {
+        text-align: left; /* Mantener la lista alineada a la izquierda */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 500px; /* Limitar el ancho para que no se extienda demasiado */
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    .nosotros-hero {
+        padding: 60px 0;
+    }
+
+    .nosotros-hero-title {
+        font-size: 2em;
+    }
+
+    .nosotros-hero-tagline {
+        font-size: 1em;
+    }
+
+    .nosotros-hero-description {
+        font-size: 1em;
+    }
+
+    .mission-vision-section,
+    .our-values-section,
+    .why-choose-us-section,
+    .what-we-do-section,
+    .methodology-section,
+    .testimonials-section,
+    .faq-section {
+        padding: 60px 0;
+    }
+
+    .section-main-title {
+        font-size: 2em;
+    }
+
+    .value-card i, .why-choose-us-card i {
+        font-size: 2.5em;
+    }
+
+    .value-card h3, .why-choose-us-card h3 {
+        font-size: 1.3em;
+    }
+
+    .methodology-step h3 {
+        font-size: 1.4em;
+    }
+
+    .faq-question {
+        font-size: 1em;
+        padding: 15px 20px;
+    }
+}
+
+/* Teléfonos muy pequeños */
+@media (max-width: 480px) {
+    .nosotros-hero-title {
+        font-size: 1.8em;
+    }
+    .section-main-title {
+        font-size: 1.8em;
+    }
+    .mission-vision-card h2 {
+        font-size: 1.6em;
+    }
+}
