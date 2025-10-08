@@ -53,8 +53,8 @@
 .mission-vision-section {
     padding: 80px 0;
     background-color: var(--color-fondo-blanco);
+    text-align: center;
 }
-
 .mission-vision-grid {
     display: flex;
     flex-wrap: wrap;
@@ -62,7 +62,14 @@
     justify-content: center;
     margin-top: 40px;
 }
-
+mv-section-title {
+    /* Aumenta el tamaño de la letra aquí */
+    font-size: 3.5em; 
+    
+    /* Asegura el color si usa variables, si no, se toma del style.css */
+    color: var(--color-titulo);
+    margin-bottom: 20px;
+}
 .mission-vision-card {
     background-color: var(--color-fondo-claro);
     padding: 30px;
@@ -496,4 +503,3 @@
     .mission-vision-card h2 {
         font-size: 1.6em;
     }
-}
