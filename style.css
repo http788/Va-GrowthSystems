@@ -18,13 +18,41 @@
     --color-card-1-title: #0056b3;
     --color-card-2-bg: #e6ffee; /* Verde menta claro */
     --color-card-2-border: #91ffd5;
-    --color-card-2-title: #1e873a;
-    --color-card-3-bg: #fff0e6; /* Naranja melocotón claro */
-    --color-card-3-border: #ffd591;
-    --color-card-3-title: #b35600;
+    --color-card-2-title: #91ffd5;
+    --color-card-3-bg: #28a745; /* Naranja melocotón claro */
+    --color-card-3-border: #28a745;
+    --color-card-3-title: #28a745;
 
     --color-primario-azul-oscuro: #0056b3; /* Para hover o variantes */
     --color-secundario-verde-oscuro: #1e7e34; /* Para hover o variantes */
+}
+/* --- NUEVAS CLASES PARA TÍTULOS LLAMATIVOS --- */
+
+/* Color principal de tu marca (Verde) */
+.highlight-green {
+    color: #00A878; 
+    font-weight: 700;
+}
+
+/* Color secundario para contraste (Azul Vibrante) */
+.highlight-blue {
+    color: #007BFF;
+    font-weight: 700;
+}
+
+/* --- ESTILOS PARA EL SELECTOR DE IDIOMA --- */
+
+.language-selector img {
+    cursor: pointer;
+    opacity: 0.6; /* Hace que la bandera inactiva se vea apagada */
+    transition: opacity 0.2s, border 0.2s;
+}
+
+/* Estilo para la bandera del idioma activo */
+.language-selector img.active-lang {
+    opacity: 1; /* Muestra la bandera activa a todo color */
+    border: 2px solid #00A878; /* Resalta con tu color de marca */
+    border-radius: 4px;
 }
 
 /* Estilos Generales */
@@ -328,7 +356,7 @@ nav ul li a:hover {
 }
 
 .desktop-mockup {
-    max-width: 70%;
+    max-width: 100%;
     height: auto;
     display: block;
     z-index: 2;
@@ -339,7 +367,7 @@ nav ul li a:hover {
 
 .mobile-mockup {
     position: absolute;
-    width: 200px;
+    width: 120px;
     height: auto;
     bottom: -20px;
     right: 10%;
@@ -811,7 +839,7 @@ footer {
     }
 
     .desktop-mockup {
-        max-width: 85%;
+        max-width: 150%;
     }
 
     .mobile-mockup {
@@ -946,7 +974,7 @@ footer {
         font-size: 1em;
     }
     .desktop-mockup {
-        max-width: 95%;
+        max-width: 105%;
     }
     .mobile-mockup {
         width: 150px;
@@ -997,7 +1025,7 @@ footer {
         font-size: 0.7em;
     }
     .mobile-mockup {
-        width: 120px;
+        width: 90px;
         bottom: -10px;
         right: 0;
     }
