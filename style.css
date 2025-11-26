@@ -1,19 +1,17 @@
-/* style.css */
+/* style.css - VERSIÓN MÓVIL OPTIMIZADA FINAL */
 
-/* Definición de la paleta de colores */
+/* =========================================
+   1. VARIABLES Y ESTILOS BASE
+   ========================================= */
 :root {
     --color-primario-azul: #007bff; 
     --color-primario-azul-oscuro: #0056b3; 
-    
     --color-secundario-verde: #28a745; 
     --color-secundario-verde-oscuro: #1e7e34; 
-    
     --color-texto-oscuro: #343a40; 
     --color-texto-claro: #6c757d; 
-    
     --color-fondo-claro: #f4f7f6; 
     --color-blanco: #ffffff; 
-    
     --color-borde-claro: #e9ecef;
     --color-card-fondo: #f0f8ff; 
     --color-card-borde: #d0e7ff; 
@@ -21,35 +19,18 @@
     --color-footer-text: #adb5bd; 
     --color-footer-link-hover: #ffffff; 
 
-    /* Colores para las tarjetas de características */
-    --color-card-1-bg: #e6f7ff; 
-    --color-card-1-border: #91d5ff;
-    --color-card-1-title: #0056b3;
-    --color-card-2-bg: #e6ffee; 
-    --color-card-2-border: #91ffd5;
-    --color-card-2-title: #91ffd5;
-    --color-card-3-bg: #28a745; 
-    --color-card-3-border: #28a745;
-    --color-card-3-title: #28a745;
+    /* Colores para las tarjetas */
+    --color-card-1-bg: #e6f7ff; --color-card-1-border: #91d5ff; --color-card-1-title: #0056b3;
+    --color-card-2-bg: #e6ffee; --color-card-2-border: #91ffd5; --color-card-2-title: #91ffd5;
+    --color-card-3-bg: #28a745; --color-card-3-border: #28a745; --color-card-3-title: #28a745;
 }
 
-/* --- NUEVAS CLASES PARA TÍTULOS LLAMATIVOS --- */
+/* Clases de utilidad */
 .highlight-green { color: #00A878; font-weight: 700; }
 .highlight-blue { color: #007BFF; font-weight: 700; }
+.highlight { color: var(--color-primario-azul); }
+.bold-text { font-weight: 600; }
 
-/* --- SELECTOR DE IDIOMA --- */
-.language-selector img {
-    cursor: pointer;
-    opacity: 0.6; 
-    transition: opacity 0.2s, border 0.2s;
-}
-.language-selector img.active-lang {
-    opacity: 1; 
-    border: 2px solid #00A878; 
-    border-radius: 4px;
-}
-
-/* Estilos Generales */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -57,11 +38,12 @@ body {
     line-height: 1.6;
     color: var(--color-texto-oscuro);
     background-color: var(--color-fondo-claro); 
-    overflow-x: hidden; 
+    overflow-x: hidden; /* Evita scroll horizontal indeseado */
 }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
+/* Títulos y textos */
 .section-small-title {
     font-size: 1.1em;
     font-weight: 600;
@@ -84,8 +66,6 @@ body {
     max-width: 800px;
     margin: 0 auto 50px auto;
 }
-
-/* TÍTULO NUESTRA PROMESA MÁS GRANDE */
 #offerSmallTitle {
     font-size: 1.5em !important; 
     font-weight: 800; 
@@ -93,16 +73,12 @@ body {
     margin-bottom: 25px;
 }
 
-.highlight { color: var(--color-primario-azul); }
-.highlight-green { color: var(--color-secundario-verde); }
-.highlight-blue { color: var(--color-primario-azul); }
-.highlight-white { color: var(--color-blanco); }
-.bold-text { font-weight: 600; }
-
-/* --- HEADER (MODIFICADO: MÁS PEQUEÑO) --- */
+/* =========================================
+   2. HEADER & NAV
+   ========================================= */
 header {
     background-color: var(--color-blanco);
-    padding: 15px 0; /* REDUCIDO A 15px */
+    padding: 15px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
@@ -111,9 +87,7 @@ header {
 }
 header .container { display: flex; justify-content: space-between; align-items: center; }
 
-.logo img { 
-    height: 50px; /* REDUCIDO A 50px */
-}
+.logo img { height: 50px; }
 
 nav ul { list-style: none; display: flex; }
 nav ul li { margin: 0 20px; }
@@ -121,20 +95,18 @@ nav ul li a {
     text-decoration: none;
     color: var(--color-texto-oscuro);
     font-weight: 600; 
-    font-size: 1.05em; /* Un poco más ajustado */
+    font-size: 1.05em;
     padding: 5px 0;
     transition: color 0.3s ease;
 }
 nav ul li a:hover { color: var(--color-primario-azul); }
 
-/* Header Actions & BOTONES 3D */
 .header-actions { display: flex; align-items: center; }
 
-/* Botón Header 3D (Azul) */
 .btn-demo {
     background-color: var(--color-primario-azul);
     color: var(--color-blanco);
-    padding: 10px 20px; /* Ajustado al header más pequeño */
+    padding: 10px 20px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
@@ -143,22 +115,19 @@ nav ul li a:hover { color: var(--color-primario-azul); }
     box-shadow: 0 5px 0 var(--color-primario-azul-oscuro); 
     transform: translateY(0);
 }
-.btn-demo:active {
-    box-shadow: 0 0 0 var(--color-primario-azul-oscuro);
-    transform: translateY(5px);
-}
+.btn-demo:active { box-shadow: 0 0 0 var(--color-primario-azul-oscuro); transform: translateY(5px); }
 .btn-demo:hover { background-color: #3395ff; }
 
 .language-selector { display: flex; margin-left: 20px; }
 .language-selector img {
-    width: 26px; 
-    height: auto; margin: 0 5px; cursor: pointer;
+    width: 26px; height: auto; margin: 0 5px; cursor: pointer;
     border-radius: 3px; box-shadow: 0 0 5px rgba(0,0,0,0.1);
     transition: transform 0.2s ease;
+    opacity: 0.6;
 }
 .language-selector img:hover { transform: scale(1.1); }
+.language-selector img.active-lang { opacity: 1; border: 2px solid #00A878; border-radius: 4px; }
 
-/* Hamburguer Menu */
 .hamburger-menu {
     display: none; flex-direction: column; cursor: pointer;
     padding: 10px; position: relative; z-index: 1001;
@@ -171,214 +140,121 @@ nav ul li a:hover { color: var(--color-primario-azul); }
 .hamburger-menu.active .bar:nth-child(2) { opacity: 0; }
 .hamburger-menu.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Hero Section */
+/* =========================================
+   3. SECCIONES PRINCIPALES (Desktop Default)
+   ========================================= */
+/* Hero */
 .hero {
-    background-color: var(--color-blanco);
-    padding: 80px 0; text-align: center; position: relative; overflow: hidden;
     background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+    padding: 80px 0; text-align: center; position: relative; overflow: hidden;
 }
 .hero .container { display: flex; flex-direction: row; align-items: center; gap: 40px; }
 .hero-content { flex: 1; max-width: 800px; text-align: left; }
-.hero-content .tagline {
-    font-size: 1.1em; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 1px; margin-bottom: 10px; color: var(--color-secundario-verde);
-}
-.hero-content h1 {
-    font-size: 3.5em; font-weight: 700; line-height: 1.2;
-    margin-bottom: 20px; color: var(--color-texto-oscuro);
-}
-.hero-content .description {
-    font-size: 1.2em; line-height: 1.7; color: var(--color-texto-claro); margin-bottom: 30px;
-}
+.hero-content .tagline { font-size: 1.1em; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: var(--color-secundario-verde); }
+.hero-content h1 { font-size: 3.5em; font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--color-texto-oscuro); }
+.hero-content .description { font-size: 1.2em; line-height: 1.7; color: var(--color-texto-claro); margin-bottom: 30px; }
 
-/* Botón Hero y CTA 3D (Verde) */
 .btn-demo-free {
     background-color: var(--color-secundario-verde);
     color: var(--color-blanco);
-    padding: 15px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    transition: all 0.1s ease;
-    text-align: center; position: relative; overflow: hidden;
-    box-shadow: 0 6px 0 var(--color-secundario-verde-oscuro);
-    transform: translateY(0);
+    padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;
+    display: inline-block; transition: all 0.1s ease; text-align: center; position: relative;
+    box-shadow: 0 6px 0 var(--color-secundario-verde-oscuro); transform: translateY(0);
 }
-.btn-demo-free:active {
-    box-shadow: 0 0 0 var(--color-secundario-verde-oscuro);
-    transform: translateY(6px);
-}
+.btn-demo-free:active { box-shadow: 0 0 0 var(--color-secundario-verde-oscuro); transform: translateY(6px); }
 .btn-demo-free:hover { background-color: #34ce57; }
-
 .btn-demo-free span { display: block; font-size: 0.8em; font-weight: 400; margin-top: 5px; line-height: 1.3; }
 .recommendation { font-style: italic; color: var(--color-texto-claro); margin-top: 20px; font-size: 0.9em; }
 
-.hero-image {
-    flex: 1; position: relative; width: 100%; display: flex;
-    justify-content: center; align-items: center; margin-top: 40px;
-}
-.desktop-mockup {
-    max-width: 100%; height: auto; display: block; z-index: 2;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); 
-    border-radius: 10px; position: relative;
-}
-.mobile-mockup {
-    position: absolute; width: 120px; height: auto; bottom: -20px; right: 10%; z-index: 3;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); 
-    border-radius: 15px;
-}
+.hero-image { flex: 1; position: relative; width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 40px; }
+.desktop-mockup { max-width: 100%; height: auto; display: block; z-index: 2; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); border-radius: 10px; position: relative; }
+.mobile-mockup { position: absolute; width: 120px; height: auto; bottom: -20px; right: 10%; z-index: 3; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); border-radius: 15px; }
 
-/* Features Section */
+/* Features */
 .features-section { background-color: var(--color-fondo-claro); padding: 80px 0; text-align: center; }
 .features-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 50px; }
-
 .feature-card {
-    background-color: var(--color-blanco);
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
-    padding: 40px 30px;
-    text-align: center;
-    flex: 1 1 calc(33% - 40px); max-width: 380px; min-height: 250px;
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-    transition: transform 0.3s ease;
+    background-color: var(--color-blanco); border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+    padding: 40px 30px; text-align: center; flex: 1 1 calc(33% - 40px); max-width: 380px; min-height: 250px;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start; transition: transform 0.3s ease;
 }
 .feature-card:hover { transform: translateY(-10px); } 
-
-.feature-card .feature-icon {
-    width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%;
-    object-fit: cover; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+.feature-card .feature-icon { width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
 .feature-card h3 { font-size: 1.8em; font-weight: 700; margin-bottom: 15px; color: var(--color-texto-oscuro); }
 .feature-card p { font-size: 1em; color: var(--color-texto-claro); line-height: 1.7; }
-.feature-card-1 h3 { color: var(--color-card-1-title); }
-.feature-card-1 { border-top: 5px solid var(--color-card-1-border); }
-.feature-card-2 h3 { color: var(--color-card-2-title); }
-.feature-card-2 { border-top: 5px solid var(--color-card-2-border); }
-.feature-card-3 h3 { color: var(--color-card-3-title); }
-.feature-card-3 { border-top: 5px solid var(--color-card-3-border); }
+.feature-card-1 { border-top: 5px solid var(--color-card-1-border); } .feature-card-1 h3 { color: var(--color-card-1-title); }
+.feature-card-2 { border-top: 5px solid var(--color-card-2-border); } .feature-card-2 h3 { color: var(--color-card-2-title); }
+.feature-card-3 { border-top: 5px solid var(--color-card-3-border); } .feature-card-3 h3 { color: var(--color-card-3-title); }
 
-/* Results and Offer Section */
+/* Metrics & Offer */
 .results-offer-section { background-color: var(--color-blanco); padding: 80px 0; text-align: center; }
 .metrics-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 50px; margin-bottom: 60px; }
-
-/* CUADROS DE MÉTRICAS */
 .metric-card {
-    background: linear-gradient(145deg, #ffffff, #f9fcff); 
-    border-radius: 16px; 
-    padding: 35px 25px;
-    flex: 1 1 calc(33% - 40px); max-width: 320px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); 
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(0, 123, 255, 0.1); 
-    transition: transform 0.3s ease;
+    background: linear-gradient(145deg, #ffffff, #f9fcff); border-radius: 16px; padding: 35px 25px;
+    flex: 1 1 calc(33% - 40px); max-width: 320px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); 
+    position: relative; overflow: hidden; border: 1px solid rgba(0, 123, 255, 0.1); transition: transform 0.3s ease;
 }
-
-.metric-card:hover {
-    transform: translateY(-5px);
-}
-
-.metric-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 6px;
-    background: linear-gradient(90deg, var(--color-primario-azul), var(--color-secundario-verde));
-}
-
+.metric-card:hover { transform: translateY(-5px); }
+.metric-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, var(--color-primario-azul), var(--color-secundario-verde)); }
 .metric-card h3 {
-    font-size: 3.5em; 
-    font-weight: 800; 
-    margin-bottom: 10px;
+    font-size: 3.5em; font-weight: 800; margin-bottom: 10px;
     background: -webkit-linear-gradient(45deg, var(--color-primario-azul), var(--color-secundario-verde));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;
 }
-
-.metric-card p {
-    font-size: 1.1em;
-    color: var(--color-texto-claro);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.85em; 
-}
+.metric-card p { font-size: 0.85em; color: var(--color-texto-claro); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
 
 .offer-content {
     display: flex; flex-wrap: wrap; align-items: center; gap: 50px; margin-top: 60px; text-align: left;
-    background-color: var(--color-fondo-claro); border-radius: 10px; padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+    background-color: var(--color-fondo-claro); border-radius: 10px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
 }
 .offer-image { flex: 1 1 40%; min-width: 300px; text-align: center; }
-.offer-image img {
-    max-width: 100%; height: auto; border-radius: 8px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
-}
+.offer-image img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); }
 .offer-details { flex: 1 1 50%; min-width: 350px; }
 .offer-details .section-small-title { text-align: left; color: var(--color-primario-azul); margin-bottom: 20px; }
-.offer-details .offer-details-combined { margin-bottom: 20px; }
-.offer-details-combined .offer-details-title-text {
-    display: block; font-size: 1.5em; font-weight: 700; color: var(--color-texto-oscuro); margin-bottom: 10px;
-}
-.offer-details-combined .offer-details-description-text { font-size: 1em; color: var(--color-texto-claro); line-height: 1.6; }
+.offer-details-combined { margin-bottom: 20px; }
+.offer-details-title-text { display: block; font-size: 1.5em; font-weight: 700; color: var(--color-texto-oscuro); margin-bottom: 10px; }
+.offer-details-description-text { font-size: 1em; color: var(--color-texto-claro); line-height: 1.6; }
 .offer-details ul { list-style: none; padding-left: 0; margin-top: 30px; }
 .offer-details ul li { display: flex; align-items: flex-start; margin-bottom: 15px; font-size: 1em; color: var(--color-texto-oscuro); }
 .offer-details ul li .fas { color: var(--color-secundario-verde); margin-right: 10px; font-size: 1.2em; position: relative; top: 3px; }
 
-/* Testimonials Section */
+/* Testimonials */
 .testimonials-section { background-color: var(--color-fondo-claro); padding: 80px 0; text-align: center; }
-.testimonials-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; margin-top: 50px; justify-content: center; align-items: stretch;
-}
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; justify-content: center; }
 .testimonial-card {
-    background-color: var(--color-blanco); border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+    background-color: var(--color-blanco); border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
     padding: 30px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 100%;
 }
 .testimonial-card .client-info { display: flex; align-items: center; margin-bottom: 15px; }
-.testimonial-card .client-info img {
-    width: 60px; height: 60px; border-radius: 50%; margin-right: 15px; object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+.testimonial-card .client-info img { width: 60px; height: 60px; border-radius: 50%; margin-right: 15px; object-fit: cover; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
 .testimonial-card .client-info h3 { font-size: 1.4em; font-weight: 700; color: var(--color-texto-oscuro); margin-bottom: 2px; }
 .testimonial-card .client-info p { font-size: 0.9em; color: var(--color-texto-claro); }
 .testimonial-text { font-size: 1.1em; line-height: 1.7; color: var(--color-texto-oscuro); margin-bottom: 20px; flex-grow: 1; }
 .testimonial-rating { color: #ffc107; font-size: 1.1em; }
-.testimonial-rating .fas { margin-right: 2px; }
 
-/* Final CTA Section */
+/* Final CTA */
 .final-cta-section {
     background-size: cover; background-position: center; color: var(--color-blanco);
     padding: 80px 0; text-align: center; position: relative; z-index: 1;
 }
-.final-cta-section::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); z-index: -1;
-}
+.final-cta-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: -1; }
 .final-cta-container { max-width: 900px; }
 .final-cta-content p { font-size: 1.1em; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
 .final-cta-content h2 { font-size: 2.8em; font-weight: 700; line-height: 1.2; margin-bottom: 30px; }
 .final-cta-content .btn-demo-free { font-size: 1.2em; padding: 18px 35px; }
-.final-cta-content .btn-demo-free span { font-size: 0.9em; }
 .final-cta-small-text { font-style: italic; font-size: 0.9em; margin-top: 20px; opacity: 0.8; }
 
-/* Steps Section */
+/* Steps */
 .steps-section { background-color: var(--color-blanco); padding: 80px 0; text-align: center; }
 .steps-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 50px; }
-
 .step-card {
-    background-color: var(--color-fondo-claro); border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* 3D */
+    background-color: var(--color-fondo-claro); border-radius: 10px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     padding: 30px; text-align: center; flex: 1 1 calc(33% - 40px); max-width: 350px; position: relative;
 }
 .step-card .step-icon {
-    font-size: 2.5em; font-weight: 700; color: var(--color-primario-azul);
-    background-color: var(--color-card-fondo); border-radius: 50%;
-    width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 25px auto; border: 3px solid var(--color-card-borde);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 2.5em; font-weight: 700; color: var(--color-primario-azul); background-color: var(--color-card-fondo);
+    border-radius: 50%; width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 25px auto; border: 3px solid var(--color-card-borde); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .step-card h3 { font-size: 1.6em; font-weight: 700; color: var(--color-texto-oscuro); margin-bottom: 15px; }
 .step-card p { font-size: 1em; color: var(--color-texto-claro); line-height: 1.6; }
@@ -399,391 +275,182 @@ footer { background-color: var(--color-footer-bg); color: var(--color-footer-tex
 .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; text-align: center; }
 .footer-bottom p { font-size: 0.85em; color: rgba(255, 255, 255, 0.7); }
 
-/* --- ESTILOS DEL MODAL (VENTANA EMERGENTE) --- */
+/* Modals */
 .modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; z-index: 2000;
-    left: 0; top: 0; width: 100%; height: 100%;
-    overflow: hidden; /* Evita scroll doble */
-    background-color: rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px); /* Fondo borroso */
-    animation: fadeIn 0.4s;
-    justify-content: center;
-    align-items: center;
+    display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+    overflow: hidden; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(5px); animation: fadeIn 0.4s;
+    justify-content: center; align-items: center;
 }
-
 .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: none;
-    width: 90%; max-width: 800px;
-    border-radius: 15px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    position: relative;
-    animation: slideUp 0.4s;
-    overflow: hidden;
+    background-color: #fefefe; margin: auto; padding: 0; border: none; width: 90%; max-width: 800px;
+    border-radius: 15px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); position: relative; animation: slideUp 0.4s; overflow: hidden;
 }
-
 .close-modal {
-    color: #333;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    cursor: pointer;
-    z-index: 10;
-    background: rgba(255,255,255,0.8);
-    width: 40px; height: 40px; text-align: center; line-height: 40px; border-radius: 50%;
+    color: #333; float: right; font-size: 28px; font-weight: bold; position: absolute; right: 20px; top: 10px;
+    cursor: pointer; z-index: 10; background: rgba(255,255,255,0.8); width: 40px; height: 40px; text-align: center; line-height: 40px; border-radius: 50%;
 }
-
 .close-modal:hover { color: #000; background: #fff; }
 
 @keyframes fadeIn { from {opacity: 0} to {opacity: 1} }
 @keyframes slideUp { from {transform: translateY(50px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
 
-/* Media Queries (Mantengo las tuyas con pequeños ajustes) */
+
+/* ==========================================================================
+   4. DISEÑO RESPONSIVE (MÓVIL Y TABLET) - UNIFICADO Y LIMPIO
+   ========================================================================== */
+
+/* --- A. TABLETS (Pantallas medianas < 992px) --- */
 @media (max-width: 992px) {
-    .container { padding: 0 15px; }
-    .section-main-title { font-size: 2em; }
-    .section-description { font-size: 1em; margin-bottom: 40px; }
+    .container { padding: 0 20px; }
     .hero-content h1 { font-size: 2.8em; }
+    .hero-image { transform: scale(0.9); margin-top: 20px; }
     .desktop-mockup { max-width: 150%; }
     .mobile-mockup { width: 180px; right: 5%; }
-    .features-grid, .metrics-grid, .steps-grid { gap: 20px; }
+    
+    /* Grillas a 1 columna para seguridad */
+    .features-grid, .metrics-grid, .steps-grid, .testimonials-grid { gap: 20px; }
     .feature-card, .metric-card, .step-card { flex: 1 1 100%; max-width: 90%; margin: 0 auto; }
     .offer-content { flex-direction: column; text-align: center; }
     .offer-details { width: 100%; }
 }
+
+/* --- B. MÓVILES (Pantallas pequeñas < 768px) --- */
 @media (max-width: 768px) {
-    header .container { flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .logo { flex: 1 1 100%; text-align: center; }
-    nav {
-        display: none; width: 100%; background-color: var(--color-blanco);
-        position: absolute; top: 100px; /* Ajustado por header más alto */
-        left: 0;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1); padding: 20px 0;
-        z-index: 999;
+    
+    /* 1. GLOBAL: ESPACIADOS Y FUENTES */
+    section, .hero, .features-section, .results-offer-section, .testimonials-section, .steps-section, .nosotros-hero {
+        padding: 40px 0 !important; /* Espaciado reducido entre secciones */
     }
-    nav.active { display: block; }
-    nav ul { flex-direction: column; align-items: center; }
-    nav ul li { margin: 10px 0; }
-    .header-actions { flex: 1 1 100%; justify-content: center; margin-left: 0; }
-    .hamburger-menu { display: flex; position: absolute; right: 20px; top: 35px; /* Ajustado */ }
-    .hero .container { flex-direction: column; }
-    .hero-content { order: 1; text-align: center; }
-    .hero-image { order: 2; margin-top: 20px; }
-    .desktop-mockup { max-width: 105%; }
-    .feature-card { flex: 0 0 100%; padding: 20px; box-sizing: border-box; }
-}
-@media (max-width: 480px) {
-    .hero-content h1 { font-size: 2em; }
-    .btn-demo-free { padding: 12px 20px; font-size: 1em; }
-    .mobile-mockup { width: 90px; bottom: -10px; right: 0; }
-
-}
-
-
-
-
-/* ==========================================================================
-   OPTIMIZACIÓN PROFESIONAL MÓVIL (Pega esto al final de style.css)
-   ========================================================================== */
-
-/* --- Ajustes para Tablets y Móviles Grandes (< 992px) --- */
-@media (max-width: 992px) {
     .container {
-        padding: 0 20px;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
     
-    /* Ajuste de Hero para que no se corten las imágenes */
-    .hero-image {
-        transform: scale(0.9);
-        margin-top: 20px;
+    /* Títulos legibles y ajustados */
+    .hero-content h1, 
+    .section-main-title,
+    .nosotros-hero-title,
+    .final-cta-content h2 {
+        font-size: 1.8rem !important; /* Tamaño perfecto para móvil */
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        word-wrap: break-word !important;
     }
-}
+    
+    p, .description, .section-description, .nosotros-hero-description {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+    }
 
-/* --- Ajustes para Móviles (< 768px) --- */
-@media (max-width: 768px) {
-    
-    /* 1. HEADER LIMPIO */
-    header {
-        padding: 15px 0;
-    }
+    /* 2. HEADER Y NAVEGACIÓN (ALINEACIÓN PERFECTA) */
+    header { padding: 10px 0 !important; }
     
     header .container {
-        display: flex;
-        flex-wrap: nowrap; /* Evita que se rompa en dos líneas */
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
     }
 
-    .logo img {
-        height: 40px; /* Logo un poco más pequeño para dar aire */
-    }
+    .logo { flex: 0 0 auto !important; }
+    .logo img { height: 35px !important; width: auto !important; margin: 0 !important; }
 
-    /* Ocultamos el botón del header en móvil para evitar saturación visual.
-       El usuario ya tiene el botón GRANDE en el Hero justo debajo. */
-    .header-actions .btn-demo {
-        display: none;
-    }
-
-    .header-actions {
-        margin-right: 50px; /* Espacio para que no choque con la hamburguesa */
-    }
-
-    .hamburger-menu {
-        display: flex;
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%); /* Centrado vertical perfecto */
-        margin: 0;
-    }
-
-    /* Menú desplegable */
+    /* Navegación (Menú desplegable) */
     nav {
-        top: 70px; /* Altura del header */
+        top: 60px; /* Ajustado a la altura del nuevo header */
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         border-top: 1px solid #eee;
     }
 
-    /* 2. HERO SECTION */
-    .hero {
-        padding: 40px 0 60px 0; /* Menos padding arriba/abajo */
-        text-align: center;
-    }
-
-    .hero .container {
-        flex-direction: column;
-    }
-
-    .hero-content h1 {
-        font-size: 2.2rem; /* Tamaño legible en móvil */
-    }
+    /* Ocultar botón demo del header para limpiar la vista */
+    .header-actions .btn-demo { display: none !important; } 
     
-    .hero-content .description {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
+    .header-actions { margin-right: 0 !important; margin-left: auto !important; }
 
-    /* Arreglo de las imágenes flotantes */
-    .hero-image {
-        margin-top: 40px;
-        width: 100%;
-        transform: scale(1); /* Reset de escala */
-    }
-    
-    .desktop-mockup {
-        width: 90%; /* Que no toque los bordes */
-        margin: 0 auto;
-    }
-    
-    .mobile-mockup {
-        width: 35%; /* Proporción correcta */
-        right: 5%; /* Posición relativa al contenedor */
-        bottom: -15%;
-    }
-
-    /* 3. ARREGLO DE TARJETAS (GRID) */
-    /* Forzamos una columna y ancho completo seguro */
-    .features-grid, 
-    .metrics-grid, 
-    .steps-grid, 
-    .testimonials-grid,
-    .offer-content {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    .feature-card, 
-    .metric-card, 
-    .step-card, 
-    .testimonial-card {
-        max-width: 100%; /* Ocupar todo el ancho disponible */
-        flex: 1 1 100%;
-        margin: 0; /* Quitar márgenes extraños */
-        min-width: unset; /* IMPORTANTE: Elimina el ancho mínimo que causa scroll */
-    }
-
-    /* 4. SECCIÓN DE OFERTA (Laptop + Texto) */
-    .offer-content {
-        padding: 25px;
-    }
-    
-    .offer-image {
-        margin-bottom: 20px;
-    }
-
-    /* 5. TIPOGRAFÍA GENERAL */
-    .section-main-title {
-        font-size: 1.8rem;
-    }
-    
-    .metric-card h3 {
-        font-size: 2.8rem; /* Un poco más pequeño que en desktop */
-    }
-}
-
-/* --- Ajustes para Móviles Pequeños (< 480px) --- */
-@media (max-width: 480px) {
-    .btn-demo-free {
-        width: 100%; /* Botón ancho completo para fácil clic */
-        padding: 15px 10px;
-    }
-    
-    .hero-content h1 {
-        font-size: 1.9rem;
-    }
-    
-    /* Ajuste fino para que la imagen del móvil no tape mucho */
-    .mobile-mockup {
-        right: 0;
-        bottom: -10%;
-    }
-    
-    /* Footer alineado al centro */
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-    
-    .footer-social {
-        text-align: center;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   FIX FINAL: CORRECCIÓN DE DESBORDE EN "NUESTRA PROMESA"
-   ========================================================================== */
-@media (max-width: 768px) {
-    
-    /* 1. ELIMINAR EL BLOQUEO DE TAMAÑO (EL CULPABLE) */
-    .offer-details {
-        min-width: unset !important; /* ESTA ES LA CLAVE: Quita el ancho fijo de 350px */
-        width: 100% !important;      /* Le dice que ocupe solo el 100% disponible */
-        flex: 1 1 auto !important;
-        display: block !important;
-    }
-
-    /* 2. AJUSTAR EL CONTENEDOR GRIS */
-    .offer-content {
-        display: flex !important;
-        flex-direction: column !important; /* Pone la imagen arriba y texto abajo */
-        width: 100% !important;
-        padding: 25px 15px !important; /* Reduce el relleno lateral a 15px para dar más espacio al texto */
-        box-sizing: border-box !important; /* Asegura que el relleno no agrande la caja */
-        margin: 0 !important;
-        overflow: hidden !important; /* Corta cualquier cosa que intente salirse */
-    }
-
-    /* 3. ASEGURAR QUE EL TEXTO SE ADAPTE Y NO SE CORTE */
-    .offer-details-combined, 
-    .offer-details ul {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .offer-details-title-text,
-    .offer-details-description-text {
-        word-wrap: break-word !important; /* Rompe palabras si son muy largas */
-        overflow-wrap: break-word !important;
-        white-space: normal !important; /* Permite que el texto baje de línea */
-    }
-
-    /* 4. AJUSTE DE LA IMAGEN DE LA LAPTOP */
-    .offer-image {
-        width: 100% !important;
-        margin-bottom: 20px !important;
-    }
-    
-    .offer-image img {
-        max-width: 100% !important;
-        height: auto !important;
-        display: block;
-        margin: 0 auto;
-    }
-}
-
-/* ==========================================================================
-   FIX DE EMERGENCIA: CORRECCIÓN PÁGINA "NOSOTROS" Y HEADER
-   ========================================================================== */
-@media (max-width: 768px) {
-
-    /* 1. ARREGLO DEL TÍTULO ROTO ("Historia de VA...") */
-    .nosotros-hero-title {
-        font-size: 1.8rem !important; /* Reducimos drásticamente para que quepa */
-        line-height: 1.3 !important;
-        margin-bottom: 15px !important;
-        display: block !important;
-        width: 100% !important;
-    }
-    
-    /* Esto obliga al texto "VA Growth Systems" a comportarse */
-    .nosotros-hero-title span {
-        display: inline-block !important; /* Evita saltos de línea raros a mitad de frase */
-    }
-
-    /* 2. ARREGLO DEL SUBTÍTULO VERDE (Transformamos tu visión...) */
-    .nosotros-hero-tagline {
-        font-size: 0.9rem !important;
-        margin-top: 20px !important; /* Un poco de aire arriba para que no pegue con el menú */
-        line-height: 1.4 !important;
-    }
-
-    /* 3. ARREGLO DEL HEADER EN MÓVIL (Alineación perfecta) */
-    header .container {
-        display: flex !important;
-        align-items: center !important; /* Centrado vertical perfecto */
-        justify-content: space-between !important;
-        padding: 10px 20px !important;
-        height: auto !important;
-    }
-
-    .logo img {
-        height: 35px !important; /* Tamaño controlado para que no deforme el header */
-        width: auto !important;
-        margin-top: 0 !important;
-    }
-
-    /* Ajuste de las banderas y el menú hamburguesa */
     .language-selector {
-        margin-left: auto !important; /* Empuja a la derecha */
-        margin-right: 15px !important; /* Separa de la hamburguesa */
+        margin: 0 15px 0 0 !important; /* Espacio entre banderas y hamburguesa */
     }
 
     .hamburger-menu {
-        position: static !important; /* Quitamos absolute para que fluya natural */
+        display: flex !important;
+        position: static !important; /* Ya no flota, se alinea con flex */
+        margin: 0 !important;
         transform: none !important;
-        margin-top: 0 !important;
     }
 
-    /* 4. ARREGLO DE ESPACIOS GENERALES EN NOSOTROS */
-    .nosotros-hero {
-        padding-top: 30px !important; /* Menos espacio arriba */
-        text-align: center !important; /* Asegura que todo esté centrado */
+    /* 3. HERO (INICIO Y NOSOTROS) */
+    .hero .container, .nosotros-hero .container {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .hero-image {
+        margin-top: 30px !important;
+        width: 100% !important;
+        transform: scale(1) !important;
+    }
+    
+    .desktop-mockup { width: 90% !important; margin: 0 auto; }
+    .mobile-mockup { width: 35% !important; right: 5%; bottom: -10%; }
+
+    /* Fix específico: Título Nosotros Roto */
+    .nosotros-hero-title span {
+        display: inline-block !important; /* Evita que se rompa la frase a la mitad */
+    }
+    .nosotros-hero-content { padding: 0 !important; width: 100% !important; }
+
+    /* 4. TARJETAS Y GRID (TODO A 1 COLUMNA) */
+    .features-grid, .metrics-grid, .steps-grid, .testimonials-grid, .why-choose-us-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 25px !important;
     }
 
-    .nosotros-hero-description {
-        font-size: 1rem !important;
-        padding: 0 15px !important; /* Margen lateral para que no toque bordes */
+    .feature-card, .metric-card, .step-card, .testimonial-card, .why-choose-us-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: unset !important; /* Clave para evitar scroll horizontal */
+        margin: 0 !important;
+        padding: 25px 20px !important;
     }
+
+    /* 5. SECCIÓN "NUESTRA PROMESA" (EL FIX CRÍTICO) */
+    .offer-content {
+        flex-direction: column !important;
+        padding: 30px 20px !important;
+        width: 100% !important;
+        gap: 20px !important;
+    }
+    
+    .offer-details {
+        width: 100% !important;
+        min-width: unset !important; /* Elimina la restricción que cortaba el texto */
+        display: block !important;
+    }
+    
+    .offer-image { margin-bottom: 20px !important; width: 100% !important; }
+    .offer-image img { max-width: 80% !important; margin: 0 auto !important; display: block; }
+    
+    /* Textos de la oferta */
+    .offer-details-title-text, .offer-details-description-text {
+        text-align: center !important;
+        word-wrap: break-word !important;
+    }
+    .offer-details .section-small-title { text-align: center !important; }
+    .offer-details ul li { justify-content: center !important; }
+
+    /* 6. FOOTER */
+    .footer-content {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 30px !important;
+    }
+    .footer-social { text-align: center !important; }
 }
 
-
-
+/* --- C. MÓVILES PEQUEÑOS (< 480px) --- */
+@media (max-width: 480px) {
+    .btn-demo-free { width: 100%; padding: 15px 10px; } /* Botón fácil de tocar */
+    .metric-card h3 { font-size: 2.5rem !important; }
+}
