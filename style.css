@@ -482,4 +482,95 @@ footer { background-color: var(--color-footer-bg); color: var(--color-footer-tex
     .hero-content h1 { font-size: 2em; }
     .btn-demo-free { padding: 12px 20px; font-size: 1em; }
     .mobile-mockup { width: 90px; bottom: -10px; right: 0; }
+
 }
+
+
+/* --- CORRECCIONES DE EMERGENCIA PARA MÓVIL (Responsiveness) --- */
+
+/* 1. Bloquear desbordamiento horizontal (Vital) */
+html, body {
+    overflow-x: hidden !important; /* Prohíbe que la pantalla se ensanche más de la cuenta */
+    width: 100%;
+    position: relative;
+}
+
+/* 2. Ajustes específicos para pantallas menores a 768px (Celulares) */
+@media (max-width: 768px) {
+    
+    /* Contenedores seguros */
+    .container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Reducir tamaño de títulos gigantes */
+    h1, .hero-content h1, .nosotros-hero-title, .section-main-title {
+        font-size: 2.2em !important; /* De 3.5em a 2.2em para que quepa */
+        line-height: 1.2 !important;
+        word-wrap: break-word; /* Rompe palabras largas si es necesario */
+    }
+
+    /* Forzar que TODAS las grillas sean de una sola columna */
+    .methodology-steps-grid,
+    .why-choose-us-grid,
+    .values-grid,
+    .features-grid,
+    .metrics-grid,
+    .testimonials-grid,
+    .mission-vision-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important; /* Anula cualquier minmax(300px) */
+        gap: 30px !important;
+    }
+
+    /* Ajustar ancho de tarjetas para que no se salgan */
+    .methodology-step,
+    .value-card,
+    .mission-vision-card,
+    .feature-card,
+    .why-choose-us-card,
+    .step-card,
+    .metric-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box; /* Asegura que el padding no sume al ancho */
+    }
+
+    /* Imágenes responsive obligatorias */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Reducir el relleno de las secciones (80px es mucho para celular) */
+    section, .hero, .nosotros-hero {
+        padding: 50px 0 !important;
+    }
+
+    /* Ajuste específico para el Hero de Nosotros en móvil */
+    .nosotros-hero .container {
+        flex-direction: column !important;
+    }
+    .nosotros-hero-content {
+        padding-right: 0 !important;
+        text-align: center !important;
+    }
+    .nosotros-hero-image {
+        margin-top: 30px !important;
+    }
+}
+
+
+
+
+
+
+
+
