@@ -488,176 +488,172 @@ footer { background-color: var(--color-footer-bg); color: var(--color-footer-tex
 
 
 
-
 /* ==========================================================================
-   OPTIMIZACIÓN MÓVIL PROFESIONAL (FINAL v2.0)
+   OPTIMIZACIÓN PROFESIONAL MÓVIL (Pega esto al final de style.css)
    ========================================================================== */
 
-/* 1. RESETEO DE ESTRUCTURA VITAL
-   Evita que cualquier elemento sea más ancho que la pantalla física */
-html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    position: relative;
-    margin: 0;
-    padding: 0;
-}
-
-/* 2. AJUSTES PARA TABLETS Y MÓVILES (Menos de 992px) */
+/* --- Ajustes para Tablets y Móviles Grandes (< 992px) --- */
 @media (max-width: 992px) {
     .container {
-        padding-left: 20px;
-        padding-right: 20px;
-        width: 100%;
+        padding: 0 20px;
     }
     
-    /* Títulos Responsivos: Usamos 'clamp' para que el texto escale suavemente */
-    h1, .hero-content h1, .nosotros-hero-title {
-        font-size: clamp(2rem, 5vw, 3rem) !important; /* Mínimo 2rem, Máximo 3rem */
-        line-height: 1.2 !important;
-    }
-
-    .section-main-title {
-        font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
-    }
-}
-
-/* 3. AJUSTES CRÍTICOS PARA MÓVILES (Menos de 768px) */
-@media (max-width: 768px) {
-
-    /* --- HEADER Y NAVEGACIÓN --- */
-    header {
-        padding: 10px 0 !important;
-    }
-
-    header .container {
-        flex-wrap: wrap !important;
-        justify-content: space-between !important;
-        gap: 10px;
-    }
-
-    .logo img {
-        height: 40px !important; /* Logo un poco más pequeño para dar espacio */
-    }
-
-    /* Ajuste del menú hamburguesa para que no se salga */
-    .header-actions {
-        margin-left: auto; /* Empuja a la derecha */
-        gap: 10px;
-    }
-
-    .btn-demo {
-        padding: 8px 12px !important;
-        font-size: 0.85em !important;
-    }
-
-    /* --- SECCIONES Y CONTENEDORES --- */
-    section, .hero, .nosotros-hero {
-        padding: 40px 0 !important; /* Menos aire arriba/abajo en móvil */
-    }
-
-    /* Forzar Columna Vertical en TODAS las secciones */
-    .hero .container,
-    .nosotros-hero .container,
-    .what-we-do-section .container,
-    .offer-content,
-    .footer-content {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-    }
-
-    /* --- HÉROES Y TEXTOS --- */
-    .hero-content, 
-    .nosotros-hero-content,
-    .offer-details {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-right: 0 !important;
-        margin-bottom: 30px;
-    }
-
-    .hero-image, 
-    .nosotros-hero-image,
-    .offer-image {
-        width: 100% !important;
-        margin-top: 0 !important;
-    }
-
-    /* --- GRILLAS Y TARJETAS (La clave para que no se vea feo) --- */
-    /* Convertimos todo grid a una sola columna */
-    .features-grid,
-    .metrics-grid,
-    .testimonials-grid,
-    .steps-grid,
-    .values-grid,
-    .mission-vision-grid,
-    .why-choose-us-grid,
-    .methodology-steps-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 25px !important;
-        width: 100% !important;
-    }
-
-    /* Tarjetas ocupan el 100% del ancho disponible (ni más, ni menos) */
-    .feature-card,
-    .metric-card,
-    .testimonial-card,
-    .step-card,
-    .value-card,
-    .mission-vision-card,
-    .why-choose-us-card,
-    .methodology-step {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        flex: none !important; /* Anula el flex-basis */
-    }
-
-    /* --- ELEMENTOS ESPECÍFICOS --- */
-    
-    /* Métricas grandes */
-    .metric-card h3 {
-        font-size: 2.8em !important;
-    }
-
-    /* Imágenes dentro del contenido */
-    .offer-image img, 
-    .hero-image img, 
-    .nosotros-hero-image img {
-        max-width: 100% !important;
-        height: auto !important;
-        object-fit: contain;
-    }
-
-    /* Ajuste de Mockups (Celular sobre Desktop) */
-    .desktop-mockup {
-        max-width: 100% !important;
-    }
-    .mobile-mockup {
-        width: 25% !important; /* Porcentaje relativo en vez de px fijos */
-        right: 0 !important;
-        bottom: -10% !important;
-    }
-
-    /* Footer */
-    .footer-social {
-        text-align: center !important;
+    /* Ajuste de Hero para que no se corten las imágenes */
+    .hero-image {
+        transform: scale(0.9);
         margin-top: 20px;
     }
 }
 
-/* 4. AJUSTES PARA PANTALLAS MUY PEQUEÑAS (iPhone SE, Galaxy Fold) */
-@media (max-width: 380px) {
-    h1, .hero-content h1 {
-        font-size: 1.8rem !important; /* Título más seguro */
+/* --- Ajustes para Móviles (< 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. HEADER LIMPIO */
+    header {
+        padding: 15px 0;
     }
-    .btn-demo {
-        display: none; /* Opcional: Ocultar botón "Demo" del header si falta espacio */
+    
+    header .container {
+        display: flex;
+        flex-wrap: nowrap; /* Evita que se rompa en dos líneas */
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
     }
-    .language-selector {
-        margin-left: 10px;
+
+    .logo img {
+        height: 40px; /* Logo un poco más pequeño para dar aire */
+    }
+
+    /* Ocultamos el botón del header en móvil para evitar saturación visual.
+       El usuario ya tiene el botón GRANDE en el Hero justo debajo. */
+    .header-actions .btn-demo {
+        display: none;
+    }
+
+    .header-actions {
+        margin-right: 50px; /* Espacio para que no choque con la hamburguesa */
+    }
+
+    .hamburger-menu {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%); /* Centrado vertical perfecto */
+        margin: 0;
+    }
+
+    /* Menú desplegable */
+    nav {
+        top: 70px; /* Altura del header */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee;
+    }
+
+    /* 2. HERO SECTION */
+    .hero {
+        padding: 40px 0 60px 0; /* Menos padding arriba/abajo */
+        text-align: center;
+    }
+
+    .hero .container {
+        flex-direction: column;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem; /* Tamaño legible en móvil */
+    }
+    
+    .hero-content .description {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* Arreglo de las imágenes flotantes */
+    .hero-image {
+        margin-top: 40px;
+        width: 100%;
+        transform: scale(1); /* Reset de escala */
+    }
+    
+    .desktop-mockup {
+        width: 90%; /* Que no toque los bordes */
+        margin: 0 auto;
+    }
+    
+    .mobile-mockup {
+        width: 35%; /* Proporción correcta */
+        right: 5%; /* Posición relativa al contenedor */
+        bottom: -15%;
+    }
+
+    /* 3. ARREGLO DE TARJETAS (GRID) */
+    /* Forzamos una columna y ancho completo seguro */
+    .features-grid, 
+    .metrics-grid, 
+    .steps-grid, 
+    .testimonials-grid,
+    .offer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .feature-card, 
+    .metric-card, 
+    .step-card, 
+    .testimonial-card {
+        max-width: 100%; /* Ocupar todo el ancho disponible */
+        flex: 1 1 100%;
+        margin: 0; /* Quitar márgenes extraños */
+        min-width: unset; /* IMPORTANTE: Elimina el ancho mínimo que causa scroll */
+    }
+
+    /* 4. SECCIÓN DE OFERTA (Laptop + Texto) */
+    .offer-content {
+        padding: 25px;
+    }
+    
+    .offer-image {
+        margin-bottom: 20px;
+    }
+
+    /* 5. TIPOGRAFÍA GENERAL */
+    .section-main-title {
+        font-size: 1.8rem;
+    }
+    
+    .metric-card h3 {
+        font-size: 2.8rem; /* Un poco más pequeño que en desktop */
     }
 }
 
+/* --- Ajustes para Móviles Pequeños (< 480px) --- */
+@media (max-width: 480px) {
+    .btn-demo-free {
+        width: 100%; /* Botón ancho completo para fácil clic */
+        padding: 15px 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.9rem;
+    }
+    
+    /* Ajuste fino para que la imagen del móvil no tape mucho */
+    .mobile-mockup {
+        right: 0;
+        bottom: -10%;
+    }
+    
+    /* Footer alineado al centro */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-social {
+        text-align: center;
+    }
+}
