@@ -1,4 +1,4 @@
-/* style.css - VERSIÓN MÓVIL OPTIMIZADA (IMÁGENES PEQUEÑAS + FOOTER ORDENADO) */
+/* style.css - VERSIÓN FINAL CORREGIDA (TODO ORDENADO MÓVIL) */
 
 /* =========================================
    1. RESET Y BASE
@@ -142,7 +142,7 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
 .close-modal { position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; background: white; border-radius: 50%; width: 40px; text-align: center; z-index: 10; }
 
 /* ==========================================================================
-   4. DISEÑO RESPONSIVE MÓVIL (CORRECCIONES SOLICITADAS)
+   4. DISEÑO RESPONSIVE MÓVIL (CORRECCIONES AGRESIVAS)
    ========================================================================== */
 
 @media (max-width: 992px) {
@@ -179,52 +179,64 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     .desktop-mockup { width: 100%; }
     .mobile-mockup { width: 70px; right: 0; bottom: -5px; }
 
-    /* --- ARREGLO 1: TARJETAS E IMÁGENES DIMINUTAS --- */
-    /* Columna única */
+    /* --- ARREGLO 1: TODAS LAS IMÁGENES DE TARJETAS PEQUEÑAS (50px) --- */
+    /* Esto incluye: features, metrics, steps y TESTIMONIOS */
+    
     .features-grid, .metrics-grid, .steps-grid, .testimonials-grid {
         display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%;
     }
 
-    /* Tarjetas ocupan todo el ancho */
-    .card-base, .feature-card, .metric-card, .step-card {
+    .card-base, .feature-card, .metric-card, .step-card, .testimonial-card {
         width: 100% !important; max-width: 100% !important;
-        margin: 0 !important; padding: 20px !important;
+        margin: 0 !important; padding: 25px 20px !important;
     }
 
-    /* ¡AQUÍ ESTÁ EL CAMBIO! Imágenes forzadas a ser PEQUEÑAS */
-    .card-base img, .feature-card img, .metric-card img, .step-card img {
-        width: 60px !important; /* Ancho fijo muy pequeño */
-        max-width: 60px !important;
+    /* FORZAMOS EL TAMAÑO PEQUEÑO EN TODAS LAS IMÁGENES DENTRO DE TARJETAS */
+    .card-base img, 
+    .feature-card img, 
+    .metric-card img, 
+    .step-card img, 
+    .testimonial-card img {
+        width: 50px !important; /* TAMAÑO ICONO PEQUEÑO */
+        max-width: 50px !important;
         height: auto !important;
-        margin: 0 auto 15px auto !important; /* Centrado */
+        margin: 0 auto 15px auto !important;
         display: block !important;
     }
 
-    /* --- ARREGLO 2: SECCIÓN "LISTO PARA ESCALAR" (OFERTA) --- */
+    /* --- ARREGLO 2: SECCIÓN "LISTO PARA ESCALAR" (OFERTA) LIMPIA --- */
     .offer-content {
         display: flex !important;
         flex-direction: column !important;
-        padding: 30px 20px !important;
-        background: var(--color-fondo-claro);
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 40px 20px !important;
         text-align: center !important;
-        gap: 20px !important;
+        gap: 30px !important; /* Espacio entre imagen y texto */
     }
     
-    /* Imagen de la oferta controlada */
-    .offer-image { order: 1; width: 100%; margin-bottom: 10px; }
+    /* Imagen controlada, no gigante */
+    .offer-image { order: 1; width: 100%; margin-bottom: 0; }
     .offer-image img { 
-        width: 120px !important; /* Imagen pequeña y controlada */
+        width: 150px !important; /* Tamaño controlado */
         max-width: 100% !important;
-        margin: 0 auto;
+        margin: 0 auto !important;
+        display: block;
     }
     
-    /* Texto de la oferta */
+    /* Texto y Botón */
     .offer-details { order: 2; width: 100%; }
-    .offer-details h2 { font-size: 1.5rem; margin-bottom: 15px; }
-    .offer-details ul { padding: 0; text-align: left; display: inline-block; }
+    .offer-details h2 { font-size: 1.6rem; margin-bottom: 15px; }
+    
+    /* Asegurar que el botón "Ingresar" u oferta esté bien separado */
+    .offer-details .btn-demo-free, .offer-details button, .offer-details a.btn {
+        margin-top: 25px !important;
+        display: inline-block !important;
+        width: auto !important;
+    }
 
 
-    /* --- ARREGLO 3: FOOTER ORDENADO Y LIMPIO --- */
+    /* --- ARREGLO 3: FOOTER ORDENADO (Links -> Iconos Blancos -> Copyright) --- */
     footer { padding: 40px 0 20px; text-align: center; }
     
     .footer-content {
@@ -234,39 +246,39 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
         gap: 20px !important;
     }
 
-    /* 1. PRIMERO: Los enlaces (Inicio, Nosotros...) */
+    /* 1. PRIMERO: Los enlaces de texto */
     .footer-column {
         order: 1 !important;
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 
-    /* 2. SEGUNDO: Los iconos de redes sociales (BLANCOS) */
+    /* 2. SEGUNDO: Iconos Sociales BLANCOS */
     .footer-social {
         order: 2 !important;
         width: 100%;
         display: flex;
         justify-content: center;
-        gap: 25px;
+        gap: 30px; /* Separación cómoda */
         margin: 20px 0;
     }
     
     .footer-social a i {
-        color: #ffffff !important; /* Blanco Puro */
-        font-size: 2.5rem !important; /* Grandes */
+        color: #ffffff !important; /* BLANCO */
+        font-size: 2.2rem !important; /* GRANDE */
         margin: 0 !important;
     }
 
-    /* 3. TERCERO: Derechos reservados (y cualquier texto suelto al final) */
+    /* 3. TERCERO: Copyright */
     footer p, .copyright {
         order: 3 !important;
-        font-size: 0.9rem;
-        margin-top: 20px;
-        opacity: 0.7;
+        font-size: 0.85rem;
+        margin-top: 15px;
+        opacity: 0.6;
     }
 }
 
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
-                                    }
+   }
