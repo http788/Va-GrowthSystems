@@ -720,6 +720,70 @@ footer { background-color: var(--color-footer-bg); color: var(--color-footer-tex
     }
 }
 
+/* ==========================================================================
+   FIX DE EMERGENCIA: CORRECCIÓN PÁGINA "NOSOTROS" Y HEADER
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. ARREGLO DEL TÍTULO ROTO ("Historia de VA...") */
+    .nosotros-hero-title {
+        font-size: 1.8rem !important; /* Reducimos drásticamente para que quepa */
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    /* Esto obliga al texto "VA Growth Systems" a comportarse */
+    .nosotros-hero-title span {
+        display: inline-block !important; /* Evita saltos de línea raros a mitad de frase */
+    }
+
+    /* 2. ARREGLO DEL SUBTÍTULO VERDE (Transformamos tu visión...) */
+    .nosotros-hero-tagline {
+        font-size: 0.9rem !important;
+        margin-top: 20px !important; /* Un poco de aire arriba para que no pegue con el menú */
+        line-height: 1.4 !important;
+    }
+
+    /* 3. ARREGLO DEL HEADER EN MÓVIL (Alineación perfecta) */
+    header .container {
+        display: flex !important;
+        align-items: center !important; /* Centrado vertical perfecto */
+        justify-content: space-between !important;
+        padding: 10px 20px !important;
+        height: auto !important;
+    }
+
+    .logo img {
+        height: 35px !important; /* Tamaño controlado para que no deforme el header */
+        width: auto !important;
+        margin-top: 0 !important;
+    }
+
+    /* Ajuste de las banderas y el menú hamburguesa */
+    .language-selector {
+        margin-left: auto !important; /* Empuja a la derecha */
+        margin-right: 15px !important; /* Separa de la hamburguesa */
+    }
+
+    .hamburger-menu {
+        position: static !important; /* Quitamos absolute para que fluya natural */
+        transform: none !important;
+        margin-top: 0 !important;
+    }
+
+    /* 4. ARREGLO DE ESPACIOS GENERALES EN NOSOTROS */
+    .nosotros-hero {
+        padding-top: 30px !important; /* Menos espacio arriba */
+        text-align: center !important; /* Asegura que todo esté centrado */
+    }
+
+    .nosotros-hero-description {
+        font-size: 1rem !important;
+        padding: 0 15px !important; /* Margen lateral para que no toque bordes */
+    }
+}
 
 
 
