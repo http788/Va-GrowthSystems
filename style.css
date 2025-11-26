@@ -19,11 +19,10 @@
     --color-footer-text: #adb5bd; 
 }
 
-/* CANDADO: Evita que la pantalla se mueva horizontalmente */
 html, body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evita desplazamiento horizontal */
     font-family: 'Poppins', sans-serif;
     color: var(--color-texto-oscuro);
     background-color: var(--color-fondo-claro);
@@ -55,29 +54,34 @@ header .container { display: flex; justify-content: space-between; align-items: 
 
 .logo img { height: 50px; display: block; }
 
-/* Menú Desktop */
+/* Menú Desktop (Se oculta en móvil) */
 nav ul { list-style: none; display: flex; }
 nav ul li { margin: 0 20px; }
-nav ul li a { text-decoration: none; color: var(--color-texto-oscuro); font-weight: 600; }
+nav ul li a { text-decoration: none; color: var(--color-texto-oscuro); font-weight: 600; transition: color 0.3s; }
+nav ul li a:hover { color: var(--color-primario-azul); }
 
-.header-actions { display: flex; align-items: center; }
+.header-actions { display: flex; align-items: center; gap: 15px; }
+
 .btn-demo {
     background-color: var(--color-primario-azul); color: white; padding: 10px 20px;
     border-radius: 6px; text-decoration: none; font-weight: 600;
 }
-.language-selector { display: flex; margin-left: 20px; }
+
+.language-selector { display: flex; align-items: center; }
 .language-selector img { width: 26px; margin: 0 5px; opacity: 0.6; cursor: pointer; }
 .language-selector img.active-lang { opacity: 1; border: 2px solid #00A878; border-radius: 4px; }
 
-/* Menú Hamburguesa (Oculto en PC) */
-.hamburger-menu { display: none; cursor: pointer; padding: 10px; }
-.hamburger-menu .bar { width: 25px; height: 3px; background: #333; margin: 4px 0; transition: 0.3s; }
-.hamburger-menu.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+/* Menú Hamburguesa (Por defecto oculto, se muestra en media query) */
+.hamburger-menu { display: none; cursor: pointer; padding: 10px; z-index: 1001; }
+.hamburger-menu .bar { width: 25px; height: 3px; background: #333; margin: 5px 0; transition: 0.3s; border-radius: 2px; }
+
+/* Animación de la X del menú */
+.hamburger-menu.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .hamburger-menu.active .bar:nth-child(2) { opacity: 0; }
-.hamburger-menu.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger-menu.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* =========================================
-   3. SECCIONES (Escritorio)
+   3. SECCIONES (Estilos Generales)
    ========================================= */
 .hero { background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%); padding: 80px 0; }
 .hero .container { display: flex; align-items: center; gap: 40px; }
@@ -87,7 +91,7 @@ nav ul li a { text-decoration: none; color: var(--color-texto-oscuro); font-weig
 .btn-demo-free {
     background-color: var(--color-secundario-verde); color: white; padding: 15px 30px;
     border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;
-    box-shadow: 0 5px 0 var(--color-secundario-verde-oscuro);
+    box-shadow: 0 5px 0 var(--color-secundario-verde-oscuro); transition: transform 0.1s;
 }
 .btn-demo-free:active { transform: translateY(5px); box-shadow: none; }
 .btn-demo-free span { display: block; font-size: 0.8em; font-weight: 400; margin-top: 5px; }
@@ -102,8 +106,10 @@ nav ul li a { text-decoration: none; color: var(--color-texto-oscuro); font-weig
 
 .card-base, .feature-card, .metric-card, .step-card, .testimonial-card {
     background: white; padding: 30px; border-radius: 10px; flex: 1 1 300px;
-    max-width: 380px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    max-width: 380px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s;
 }
+.feature-card:hover { transform: translateY(-5px); }
+
 .metric-card h3 { font-size: 3.5em; color: var(--color-primario-azul); margin-bottom: 10px; }
 
 /* Oferta */
@@ -126,7 +132,7 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
 .close-modal { position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; background: white; border-radius: 50%; width: 40px; text-align: center; z-index: 10; }
 
 /* ==========================================================================
-   4. DISEÑO RESPONSIVE (CORRECCIÓN CRÍTICA DE ALINEACIÓN)
+   4. DISEÑO RESPONSIVE (MÓVIL Y TABLET)
    ========================================================================== */
 
 @media (max-width: 992px) {
@@ -138,85 +144,101 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
 
 @media (max-width: 768px) {
     
-    /* --- HEADER Y MENÚ (FIX: Ocultar texto "Inicio Nosotros") --- */
-    header { padding: 10px 0 !important; }
+    /* --- HEADER MÓVIL --- */
+    header { padding: 10px 0; }
     
     header .container {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        flex-wrap: nowrap !important;
+        /* Aseguramos que el logo y el botón hamburguesa estén a los extremos */
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .logo img { height: 40px !important; margin: 0 !important; }
+    .logo img { height: 35px; } /* Logo más pequeño */
 
-    /* OCULTAR NAV "Inicio Nosotros" y botón desktop */
-    nav, #mainNav, .header-actions .btn-demo { 
-        display: none !important; 
+    /* Ocultamos navegación desktop y botón demo grande */
+    nav, 
+    .header-actions .btn-demo { 
+        display: none; 
     }
 
-    /* Mostrar solo banderas y hamburguesa */
-    .header-actions { margin-left: auto !important; margin-right: 10px !important; }
-    .language-selector { margin: 0 !important; }
-    
-    .hamburger-menu { display: flex !important; margin: 0 !important; }
+    /* Mostramos menú hamburguesa */
+    .hamburger-menu { display: block; }
 
-    /* Menú desplegable activo */
+    /* ESTILO DEL MENÚ DESPLEGABLE */
+    /* Este estilo se aplica cuando JS añade la clase 'active' */
     nav.active {
-        display: block !important;
-        position: absolute; top: 60px; left: 0; width: 100%;
-        background: white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); padding: 20px; text-align: center;
+        display: block;
+        position: absolute;
+        top: 100%; /* Justo debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-blanco);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        border-top: 1px solid var(--color-borde-claro);
+        z-index: 999;
+        animation: slideDown 0.3s ease forwards;
     }
-    nav.active ul { flex-direction: column; }
+
+    nav.active ul { 
+        flex-direction: column; 
+        width: 100%;
+        text-align: center;
+    }
+
     nav.active ul li { margin: 15px 0; }
+    nav.active ul li a { display: block; padding: 10px; font-size: 1.2rem; }
 
-    /* --- ALINEACIÓN DE CONTENIDO (FIX: Todo al centro, ancho 100%) --- */
-    .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        margin: 0 !important;
+    /* --- HERO MÓVIL --- */
+    .hero .container {
+        flex-direction: column; /* Apilar verticalmente */
+        text-align: center;
+        gap: 20px;
     }
 
-    /* Hero */
-    .hero .container, .nosotros-hero .container {
-        flex-direction: column !important;
-        text-align: center !important;
-        align-items: center !important;
+    .hero-content h1 { font-size: 2rem; }
+    
+    .hero-image { 
+        width: 100%; 
+        transform: scale(1); 
+        margin-top: 20px; 
     }
-
-    .hero-content { width: 100% !important; padding: 0 !important; }
     
-    .hero-content h1, .section-main-title {
-        font-size: 2rem !important; /* Texto más pequeño para que quepa */
-        line-height: 1.2 !important;
-        text-align: center !important;
-        width: 100% !important;
-        margin-left: 0 !important;
-    }
+    .mobile-mockup { width: 80px; right: 0; bottom: -10px; }
 
-    .hero-image { width: 100% !important; margin-top: 30px !important; transform: none !important; }
-    .desktop-mockup { width: 90% !important; margin: 0 auto; }
-    .mobile-mockup { width: 30% !important; right: 0; bottom: -10%; }
-
-    /* --- OFERTA Y TARJETAS (FIX: Ancho flexible) --- */
-    .offer-content { padding: 30px 20px !important; width: 100% !important; box-sizing: border-box !important; }
-    .offer-details { width: 100% !important; min-width: 0 !important; }
-    .offer-details-title-text { text-align: center !important; font-size: 1.4em !important; }
-    
-    .offer-image img { max-width: 80% !important; margin: 0 auto; display: block; }
-    
-    /* Forzar tarjetas a 1 columna */
+    /* --- ARREGLO DE GRIDS (1 Columna) --- */
     .features-grid, .metrics-grid, .steps-grid, .testimonials-grid {
-        display: flex !important; flex-direction: column !important; gap: 20px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
-    .feature-card, .metric-card, .step-card {
-        width: 100% !important; margin: 0 !important; max-width: 100% !important;
+
+    .card-base, .feature-card, .metric-card, .step-card {
+        width: 100%;
+        max-width: 100%; /* Ocupar todo el ancho disponible */
+        margin: 0;
     }
 
-    /* Footer */
-    .footer-content { flex-direction: column !important; text-align: center !important; }
-    .footer-social { text-align: center !important; }
+    /* --- OFERTA MÓVIL --- */
+    .offer-content {
+        padding: 20px;
+        width: 100%;
+    }
+    .offer-image img { width: 80%; }
 
+    /* --- FOOTER MÓVIL --- */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+}
 
+/* Animación suave para el menú */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
