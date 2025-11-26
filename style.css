@@ -669,112 +669,56 @@ footer { background-color: var(--color-footer-bg); color: var(--color-footer-tex
 
 
 /* ==========================================================================
-   REFINAMIENTO MÓVIL: MODO COMPACTO (Pega esto al FINAL de style.css)
+   FIX FINAL: CORRECCIÓN DE DESBORDE EN "NUESTRA PROMESA"
    ========================================================================== */
-
 @media (max-width: 768px) {
-
-    /* --- 1. REDUCCIÓN GENERAL DE TAMAÑOS (Hacer todo más pequeño) --- */
     
-    /* Reducir el espacio entre secciones (antes era muy grande) */
-    section, .hero, .features-section, .results-offer-section, .testimonials-section, .steps-section {
-        padding: 40px 0 !important; /* Mucho más pegado y limpio */
+    /* 1. ELIMINAR EL BLOQUEO DE TAMAÑO (EL CULPABLE) */
+    .offer-details {
+        min-width: unset !important; /* ESTA ES LA CLAVE: Quita el ancho fijo de 350px */
+        width: 100% !important;      /* Le dice que ocupe solo el 100% disponible */
+        flex: 1 1 auto !important;
+        display: block !important;
     }
 
-    /* Títulos Principales (H1, H2) más pequeños y elegantes */
-    .hero-content h1, 
-    .section-main-title,
-    .nosotros-hero-title {
-        font-size: 1.8rem !important; /* Tamaño ideal para celular */
-        line-height: 1.2 !important;
-        margin-bottom: 15px !important;
-    }
-
-    /* Subtítulos pequeños */
-    .section-small-title, 
-    .tagline,
-    .highlight-green {
-        font-size: 0.9rem !important;
-        margin-bottom: 10px !important;
-    }
-
-    /* Texto de párrafo estándar */
-    p, .description, .section-description {
-        font-size: 0.95rem !important;
-        line-height: 1.5 !important;
-    }
-
-    /* --- 2. SOLUCIÓN ESPECÍFICA: SECCIÓN "NUESTRA PROMESA" --- */
-    
-    /* El contenedor gris/blanco de la oferta */
+    /* 2. AJUSTAR EL CONTENEDOR GRIS */
     .offer-content {
-        padding: 20px !important; /* Reducir el relleno interno drásticamente */
-        margin-top: 30px !important;
-        gap: 20px !important; /* Menos espacio entre imagen y texto */
+        display: flex !important;
+        flex-direction: column !important; /* Pone la imagen arriba y texto abajo */
+        width: 100% !important;
+        padding: 25px 15px !important; /* Reduce el relleno lateral a 15px para dar más espacio al texto */
+        box-sizing: border-box !important; /* Asegura que el relleno no agrande la caja */
+        margin: 0 !important;
+        overflow: hidden !important; /* Corta cualquier cosa que intente salirse */
     }
 
-    /* La imagen de la laptop en la promesa */
-    .offer-image img {
-        max-width: 80% !important; /* Hacemos la imagen más chica */
-        margin: 0 auto !important; /* Centrada */
-        display: block;
+    /* 3. ASEGURAR QUE EL TEXTO SE ADAPTE Y NO SE CORTE */
+    .offer-details-combined, 
+    .offer-details ul {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
-    /* Los textos dentro de la promesa */
-    .offer-details .section-small-title {
-        text-align: center !important; /* Centrar título "NUESTRA PROMESA" */
-        margin-bottom: 15px !important;
-    }
-
-    .offer-details-title-text {
-        font-size: 1.3rem !important; /* Títulos internos más pequeños */
-        text-align: center; /* Centrado para que se vea ordenado */
-        line-height: 1.3 !important;
-    }
-
+    .offer-details-title-text,
     .offer-details-description-text {
-        font-size: 0.9rem !important;
-        text-align: center;
+        word-wrap: break-word !important; /* Rompe palabras si son muy largas */
+        overflow-wrap: break-word !important;
+        white-space: normal !important; /* Permite que el texto baje de línea */
+    }
+
+    /* 4. AJUSTE DE LA IMAGEN DE LA LAPTOP */
+    .offer-image {
+        width: 100% !important;
         margin-bottom: 20px !important;
     }
-
-    /* Lista de beneficios (checkmarks) */
-    .offer-details ul {
-        margin-top: 15px !important;
-        padding-left: 0 !important;
-    }
-
-    .offer-details ul li {
-        font-size: 0.9rem !important;
-        justify-content: center; /* Centrar los items de la lista */
-        margin-bottom: 10px !important;
-    }
-
-    /* --- 3. TARJETAS MÁS COMPACTAS (Features, Metrics, Pasos) --- */
     
-    .feature-card, .metric-card, .step-card, .testimonial-card {
-        padding: 25px 20px !important; /* Menos "aire" dentro de las tarjetas */
-        margin-bottom: 10px !important;
-    }
-
-    .metric-card h3 {
-        font-size: 2.5rem !important; /* Números grandes pero no gigantes */
-    }
-
-    /* --- 4. AJUSTE DE MÁRGENES LATERALES --- */
-    .container {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+    .offer-image img {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
     }
 }
-
-
-
-
-
-
-
-
 
 
 
