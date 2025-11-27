@@ -263,12 +263,12 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
 .modal-body { width: 100%; }
 
 /* =========================================
-   7. RESPONSIVE DESIGN (MÓVIL - CORREGIDO FINAL)
+   7. RESPONSIVE DESIGN (MÓVIL - CORREGIDO DEFINITIVO)
    ========================================= */
 
 @media (max-width: 768px) {
     
-    /* HEADER & NAV */
+    /* --- HEADER & NAV --- */
     header { padding: 10px 0; }
     .logo img { height: 35px; } 
     nav, .header-actions .btn-demo { display: none; }
@@ -276,7 +276,7 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     .header-actions { margin-right: 50px; } 
     .language-selector { margin-right: 5px; }
 
-    /* NAVEGACIÓN MÓVIL */
+    /* NAVEGACIÓN */
     nav.active {
         display: block; position: absolute; top: 100%; left: 0; width: 100%;
         background-color: white; padding: 20px; 
@@ -287,7 +287,7 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     nav.active ul li { margin: 15px 0; }
     nav.active ul li a { display: block; padding: 10px; font-size: 1.1rem; }
 
-    /* HERO */
+    /* --- HERO --- */
     .hero { padding: 30px 0 50px; text-align: center; }
     .hero .container { flex-direction: column; gap: 30px; }
     .hero-content h1 { font-size: 2em; line-height: 1.3; } 
@@ -295,69 +295,77 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     .desktop-mockup { width: 100%; }
     .mobile-mockup { width: 80px; right: 0; bottom: -10px; }
 
-    /* GRID GENERAL */
+    /* --- SOLUCIÓN PROBLEMA DE TARJETAS --- */
+    
+    /* 1. Contenedores Flex en Columna */
     .features-grid, .metrics-grid, .steps-grid, .testimonials-grid { 
-        flex-direction: column; align-items: center; gap: 20px; margin-top: 30px;
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        gap: 20px; 
+        margin-top: 30px;
     }
 
-    /* --- CORRECCIÓN 1: TARJETAS CON TEXTO "A LA RAYA" --- */
-    /* Aumentamos el padding a 35px arriba/abajo y 30px a los lados para que el texto respire */
+    /* 2. SOLUCIÓN IMAGEN 1 (Texto cortado en Anuncios/Pasos) */
     .feature-card, .step-card, .testimonial-card { 
         width: 100% !important; 
         max-width: 100% !important; 
         margin: 0 !important; 
-        height: auto !important; 
-        padding: 50px 30px !important; /* <--- MÁS ESPACIO INTERNO */
+        
+        /* ESTO ES LO CRÍTICO: */
+        height: auto !important; /* Deja que la tarjeta crezca lo necesario */
+        min-height: 0 !important; /* Elimina alturas mínimas forzadas */
+        padding: 30px 25px !important; /* Relleno cómodo para que el texto no toque bordes */
+        overflow: visible !important; /* Asegura que nada se oculte */
     }
     
-    /* Iconos centrados y con tamaño correcto */
+    /* Iconos centrados */
     .feature-icon { width: 70px; height: 70px; margin: 0 auto 20px auto; padding: 0; }
 
 
-    /* --- CORRECCIÓN 2: MÉTRICAS GIGANTES --- */
-    /* Hacemos estas tarjetas Específicamente más pequeñas y compactas */
+    /* 3. SOLUCIÓN IMAGEN 2 (Métricas gigantes con espacio vacío) */
     .metric-card {
         width: 100% !important;
         margin: 0 !important;
-        padding: 5px 5px !important; /* Muy poco relleno vertical */
-        min-height: 0 !important; /* Elimina altura mínima forzada */
+        
+        /* COMPACTAR TARJETA */
+        height: auto !important; 
+        min-height: 0 !important; /* Mata el espacio vacío extra */
+        padding: 25px 20px !important; /* Relleno reducido */
     }
+
     .metric-card h3 {
-        font-size: 2.2em !important; /* Número más pequeño (antes era 3.5em) */
+        font-size: 2.5em !important; /* Tamaño controlado del número */
         margin-bottom: 5px !important;
-        line-height: 1;
+        line-height: 1.1 !important;
     }
     .metric-card p {
-        font-size: 0.95em !important;
-        margin: 0;
-        line-height: 1.4;
+        font-size: 1em !important;
+        margin: 0 !important;
+        line-height: 1.4 !important;
     }
 
     
-    /* --- CORRECCIÓN 3: SECCIÓN PROMESA (OFFER) --- */
-    /* Restaurada para que no se mueva ni cambie de lugar */
+    /* --- SECCIÓN PROMESA (Sin cambios, como pediste) --- */
     .offer-content { 
         display: flex !important;
-        flex-direction: column !important; /* Columna simple */
+        flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
         padding: 40px 25px !important;
         gap: 30px !important;
-        margin-top: 50px; /* Separación estándar */
+        margin-top: 50px;
     }
     .offer-image { width: 100%; margin: 0; }
     .offer-image img { width: 220px; max-width: 100%; }
     .offer-details { width: 100%; }
     .offer-details h3 { font-size: 1.3em; }
 
-    /* FINAL CTA MÓVIL */
+    /* FINAL CTA & FOOTER */
     .final-cta-section { padding: 60px 0; }
     .final-cta-content h2 { font-size: 1.8em; margin-bottom: 25px; }
 
-    /* FOOTER MÓVIL */
     footer { text-align: center; padding: 40px 0 20px; }
     .footer-content { flex-direction: column; gap: 30px; align-items: center; margin-bottom: 30px; }
     .footer-social .social-icons { justify-content: center; }
 }
-
-
