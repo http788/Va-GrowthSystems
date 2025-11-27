@@ -1,4 +1,4 @@
-/* style.css - ADAPTADO PERFECTAMENTE A INDEX.HTML */
+/* style.css - VERSIÓN FINAL COMPLETA (Iconos Circulares + Colores) */
 
 /* =========================================
    0. IMPORTACIÓN DE FUENTES
@@ -117,81 +117,67 @@ nav ul li a:hover { color: var(--color-primario-azul); }
 .features-grid, .metrics-grid, .steps-grid, .testimonials-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 50px; }
 
 /* Estilo Base de Tarjetas */
-.feature-card, .metric-card, .step-card, .testimonial-card {
+.metric-card, .step-card, .testimonial-card {
     background: white; padding: 40px 30px; border-radius: 16px; flex: 1 1 300px;
     max-width: 380px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); transition: transform 0.3s ease;
     border: 1px solid rgba(0,0,0,0.03);
-    text-align: left; /* Alineación por defecto a la izquierda para mejor lectura */
+    text-align: left;
 }
-.feature-card:hover, .metric-card:hover, .testimonial-card:hover, .step-card:hover { transform: translateY(-10px); }
+.metric-card:hover, .testimonial-card:hover, .step-card:hover { transform: translateY(-10px); }
 
-/* --- FEATURES (Tarjetas con Colores) --- */
+/* --- FEATURES (Tarjetas con Colores e Iconos Circulares) --- */
 .feature-card { 
+    background: white; padding: 40px 30px; border-radius: 16px; flex: 1 1 300px;
+    max-width: 380px; box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.03);
     text-align: center; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-/* Iconos */
+.feature-card:hover { transform: translateY(-10px); }
+
 .feature-icon { 
     width: 80px; 
     height: 80px; 
-    object-fit: contain; 
+    object-fit: contain; /* Asegura que la imagen no se deforme */
     margin-bottom: 25px; 
-    display: inline-block; 
+    display: inline-block;
+    border-radius: 50%; /* <--- ESTO HACE LOS ICONOS REDONDOS */
+    background-color: #f8f9fa; /* Fondo gris suave opcional detrás del icono */
+    padding: 10px; /* Espacio interno para que el icono respire */
 }
 
-.feature-card h3 { 
-    margin-bottom: 15px; 
-    font-size: 1.4em; 
-    font-weight: 700;
-}
+.feature-card h3 { margin-bottom: 15px; font-size: 1.4em; font-weight: 700; }
 
-/* COLORES ESPECÍFICOS PARA CADA TARJETA */
-
-/* Tarjeta 1: Anuncios (Azul) */
-.feature-card-1 { 
-    border-top: 5px solid var(--color-primario-azul); 
-}
-.feature-card-1:hover {
-    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.15);
-}
+/* Colores específicos */
+.feature-card-1 { border-top: 5px solid var(--color-primario-azul); }
+.feature-card-1:hover { box-shadow: 0 15px 30px rgba(0, 123, 255, 0.15); }
 .feature-card-1 h3 { color: var(--color-primario-azul); }
 
-
-/* Tarjeta 2: Seguimiento (Verde) */
-.feature-card-2 { 
-    border-top: 5px solid var(--color-secundario-verde); 
-}
-.feature-card-2:hover {
-    box-shadow: 0 15px 30px rgba(40, 167, 69, 0.15);
-}
+.feature-card-2 { border-top: 5px solid var(--color-secundario-verde); }
+.feature-card-2:hover { box-shadow: 0 15px 30px rgba(40, 167, 69, 0.15); }
 .feature-card-2 h3 { color: var(--color-secundario-verde); }
 
-
-/* Tarjeta 3: Ventas (Azul Oscuro / Cian) */
-.feature-card-3 { 
-    border-top: 5px solid var(--color-primario-azul-oscuro); 
-}
-.feature-card-3:hover {
-    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
-}
+.feature-card-3 { border-top: 5px solid var(--color-primario-azul-oscuro); }
+.feature-card-3:hover { box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15); }
 .feature-card-3 h3 { color: var(--color-primario-azul-oscuro); }
+
 
 /* --- METRICS --- */
 .metric-card { text-align: center; border-top: 5px solid var(--color-primario-azul); }
 .metric-card h3 { font-size: 3.5em; color: var(--color-primario-azul); margin-bottom: 10px; font-weight: 800; }
 .metric-card p { font-weight: 500; color: var(--color-texto-claro); }
 
-/* --- OFFER SECTION (Mix of grid/flex) --- */
+/* --- OFFER SECTION --- */
 .offer-content { 
     display: flex; gap: 60px; background: white; padding: 60px; 
     border-radius: 20px; align-items: center; text-align: left; 
     margin-top: 60px; box-shadow: 0 20px 60px rgba(0,0,0,0.05);
 }
 .offer-image { flex: 1; display: flex; justify-content: center; }
-.offer-image img { max-width: 100%; width: 400px; } /* Ajuste de tamaño laptop */
+.offer-image img { max-width: 100%; width: 400px; } 
 
 .offer-details { flex: 1.2; }
 .offer-details-combined { margin-bottom: 25px; }
@@ -202,11 +188,13 @@ nav ul li a:hover { color: var(--color-primario-azul); }
 .offer-details ul li { display: flex; align-items: center; margin-bottom: 15px; font-weight: 500; }
 .offer-details ul li i { color: var(--color-secundario-verde); margin-right: 15px; font-size: 1.2em; }
 
-/* --- TESTIMONIALS --- */
+/* --- TESTIMONIALS (Fotos Circulares) --- */
 .testimonial-card { text-align: left; }
 .client-info { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
 .client-info img { 
-    width: 60px; height: 60px; border-radius: 50%; object-fit: cover; 
+    width: 60px; height: 60px; 
+    border-radius: 50%; /* <--- YA ESTABA, ASEGURA EL CIRCULO */
+    object-fit: cover; 
     border: 3px solid var(--color-fondo-claro); 
 }
 .client-info div h3 { font-size: 1.1em; margin-bottom: 2px; }
@@ -224,11 +212,10 @@ nav ul li a:hover { color: var(--color-primario-azul); }
     background-repeat: no-repeat;
     color: white;
 }
-/* Capa oscura para que se lea el texto sobre la imagen de fondo */
 .final-cta-section::before {
     content: '';
     position: absolute; inset: 0;
-    background: rgba(0, 52, 102, 0.85); /* Azul oscuro semitransparente */
+    background: rgba(0, 52, 102, 0.85); 
     z-index: 1;
 }
 .final-cta-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
@@ -295,7 +282,7 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     .logo img { height: 40px; }
     nav, .header-actions .btn-demo { display: none; }
     .hamburger-menu { display: block; }
-    .header-actions { margin-right: 50px; } /* Espacio para el menú */
+    .header-actions { margin-right: 50px; } 
     .language-selector { margin-right: 10px; }
 
     /* NAVEGACIÓN MÓVIL */
@@ -325,7 +312,7 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
         width: 100%; max-width: 100%; margin: 0; 
     }
     
-    /* Corrección específica para imágenes en móvil */
+    /* Imágenes en móvil */
     .feature-icon { width: 60px; height: 60px; margin: 0 auto 20px auto; }
     
     /* OFFER SECTION MÓVIL */
@@ -347,4 +334,3 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
