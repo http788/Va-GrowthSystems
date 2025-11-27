@@ -263,14 +263,14 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
 .modal-body { width: 100%; }
 
 /* =========================================
-   7. RESPONSIVE DESIGN (MÓVIL CORREGIDO)
+   7. RESPONSIVE DESIGN (MÓVIL - CORREGIDO FINAL)
    ========================================= */
 
 @media (max-width: 768px) {
     
     /* HEADER & NAV */
     header { padding: 10px 0; }
-    .logo img { height: 35px; } /* Logo un poco más pequeño para dar espacio */
+    .logo img { height: 35px; } 
     nav, .header-actions .btn-demo { display: none; }
     .hamburger-menu { display: block; }
     .header-actions { margin-right: 50px; } 
@@ -290,51 +290,65 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     /* HERO */
     .hero { padding: 30px 0 50px; text-align: center; }
     .hero .container { flex-direction: column; gap: 30px; }
-    .hero-content h1 { font-size: 2em; line-height: 1.3; } /* Título más controlado */
+    .hero-content h1 { font-size: 2em; line-height: 1.3; } 
     .hero-image { width: 100%; transform: none; margin-top: 10px; }
     .desktop-mockup { width: 100%; }
     .mobile-mockup { width: 80px; right: 0; bottom: -10px; }
 
-    /* ARREGLO DE TARJETAS (CARDS) */
+    /* GRID GENERAL */
     .features-grid, .metrics-grid, .steps-grid, .testimonials-grid { 
-        flex-direction: column; align-items: center; gap: 15px; margin-top: 30px;
+        flex-direction: column; align-items: center; gap: 20px; margin-top: 30px;
     }
 
-    /* Regla general para todas las tarjetas en móvil */
-    .feature-card, .metric-card, .step-card, .testimonial-card { 
+    /* --- CORRECCIÓN 1: TARJETAS CON TEXTO "A LA RAYA" --- */
+    /* Aumentamos el padding a 35px arriba/abajo y 30px a los lados para que el texto respire */
+    .feature-card, .step-card, .testimonial-card { 
         width: 100% !important; 
         max-width: 100% !important; 
         margin: 0 !important; 
-        height: auto !important; /* Esto asegura que el texto no se salga */
-        padding: 25px 20px !important; /* MENOS Relleno (antes era 40px) */
+        height: auto !important; 
+        padding: 35px 30px !important; /* <--- MÁS ESPACIO INTERNO */
     }
+    
+    /* Iconos centrados y con tamaño correcto */
+    .feature-icon { width: 70px; height: 70px; margin: 0 auto 20px auto; padding: 0; }
 
-    /* ARREGLO ESPECÍFICO PARA MÉTRICAS (+200%, etc.) */
-    /* Para que no se vean tan largas hacia abajo */
+
+    /* --- CORRECCIÓN 2: MÉTRICAS GIGANTES --- */
+    /* Hacemos estas tarjetas Específicamente más pequeñas y compactas */
     .metric-card {
-        padding: 15px 20px !important; /* Relleno vertical muy reducido */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: auto; /* Quitar altura mínima si la hubiera */
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px 15px !important; /* Muy poco relleno vertical */
+        min-height: 0 !important; /* Elimina altura mínima forzada */
     }
     .metric-card h3 {
-        font-size: 2.5em !important; /* Número un poco más pequeño */
-        margin-bottom: 5px !important; /* Menos espacio debajo del número */
+        font-size: 2.2em !important; /* Número más pequeño (antes era 3.5em) */
+        margin-bottom: 5px !important;
+        line-height: 1;
     }
     .metric-card p {
-        font-size: 1em !important;
+        font-size: 0.95em !important;
         margin: 0;
+        line-height: 1.4;
     }
+
     
-    /* Ajuste de imágenes en móvil */
-    .feature-icon { width: 60px; height: 60px; margin: 0 auto 15px auto; padding: 8px; }
-    
-    /* OFFER SECTION MÓVIL */
-    .offer-content { padding: 30px 20px; gap: 30px; margin-top: 40px; }
-    .offer-image img { width: 220px; }
-    .offer-details h3 { font-size: 1.2em; }
-    .offer-details ul li { font-size: 0.95em; }
+    /* --- CORRECCIÓN 3: SECCIÓN PROMESA (OFFER) --- */
+    /* Restaurada para que no se mueva ni cambie de lugar */
+    .offer-content { 
+        display: flex !important;
+        flex-direction: column !important; /* Columna simple */
+        align-items: center !important;
+        text-align: center !important;
+        padding: 40px 25px !important;
+        gap: 30px !important;
+        margin-top: 50px; /* Separación estándar */
+    }
+    .offer-image { width: 100%; margin: 0; }
+    .offer-image img { width: 220px; max-width: 100%; }
+    .offer-details { width: 100%; }
+    .offer-details h3 { font-size: 1.3em; }
 
     /* FINAL CTA MÓVIL */
     .final-cta-section { padding: 60px 0; }
