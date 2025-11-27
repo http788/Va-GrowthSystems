@@ -263,12 +263,12 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
 .modal-body { width: 100%; }
 
 /* =========================================
-   7. RESPONSIVE DESIGN (MÓVIL - CORREGIDO DEFINITIVO)
+   7. RESPONSIVE DESIGN (MÓVIL - CORRECCIÓN TOTAL)
    ========================================= */
 
 @media (max-width: 768px) {
     
-    /* --- HEADER & NAV --- */
+    /* --- HEADER --- */
     header { padding: 10px 0; }
     .logo img { height: 35px; } 
     nav, .header-actions .btn-demo { display: none; }
@@ -276,7 +276,7 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     .header-actions { margin-right: 50px; } 
     .language-selector { margin-right: 5px; }
 
-    /* NAVEGACIÓN */
+    /* MENU DESPLEGABLE */
     nav.active {
         display: block; position: absolute; top: 100%; left: 0; width: 100%;
         background-color: white; padding: 20px; 
@@ -295,58 +295,69 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     .desktop-mockup { width: 100%; }
     .mobile-mockup { width: 80px; right: 0; bottom: -10px; }
 
-    /* --- SOLUCIÓN PROBLEMA DE TARJETAS --- */
+    /* --- SOLUCIÓN DE TARJETAS (NUCLEAR) --- */
     
-    /* 1. Contenedores Flex en Columna */
     .features-grid, .metrics-grid, .steps-grid, .testimonials-grid { 
         display: flex;
         flex-direction: column; 
         align-items: center; 
-        gap: 20px; 
+        gap: 25px; /* Espacio entre tarjeta y tarjeta */
         margin-top: 30px;
+        height: auto !important;
     }
 
-    /* 2. SOLUCIÓN IMAGEN 1 (Texto cortado en Anuncios/Pasos) */
+    /* 1. TARJETAS DE SERVICIOS (Texto saliéndose) */
     .feature-card, .step-card, .testimonial-card { 
         width: 100% !important; 
         max-width: 100% !important; 
         margin: 0 !important; 
         
-        /* ESTO ES LO CRÍTICO: */
-        height: auto !important; /* Deja que la tarjeta crezca lo necesario */
-        min-height: 0 !important; /* Elimina alturas mínimas forzadas */
-        padding: 30px 25px !important; /* Relleno cómodo para que el texto no toque bordes */
-        overflow: visible !important; /* Asegura que nada se oculte */
+        /* ROMPEMOS LA HERENCIA FLEX DEL ESCRITORIO */
+        flex: none !important; 
+        display: block !important; 
+        
+        /* FORZAMOS ALTURA AUTOMÁTICA */
+        height: auto !important; 
+        min-height: auto !important;
+        
+        /* Aseguramos que el texto quepa */
+        padding: 30px 25px 40px 25px !important; /* Un poco más de espacio abajo */
+        box-sizing: border-box !important;
     }
     
-    /* Iconos centrados */
+    /* Iconos */
     .feature-icon { width: 70px; height: 70px; margin: 0 auto 20px auto; padding: 0; }
 
 
-    /* 3. SOLUCIÓN IMAGEN 2 (Métricas gigantes con espacio vacío) */
+    /* 2. TARJETAS DE MÉTRICAS (+200% Gigantes) */
     .metric-card {
         width: 100% !important;
+        max-width: 100% !important;
         margin: 0 !important;
         
-        /* COMPACTAR TARJETA */
+        /* ROMPEMOS FLEX Y ALTURA */
+        flex: none !important;
         height: auto !important; 
-        min-height: 0 !important; /* Mata el espacio vacío extra */
-        padding: 25px 20px !important; /* Relleno reducido */
+        min-height: 0 !important;
+        
+        /* Relleno compacto */
+        padding: 20px 15px !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
     }
 
     .metric-card h3 {
-        font-size: 2.5em !important; /* Tamaño controlado del número */
+        font-size: 2.2em !important; 
         margin-bottom: 5px !important;
         line-height: 1.1 !important;
     }
     .metric-card p {
-        font-size: 1em !important;
+        font-size: 0.9em !important;
         margin: 0 !important;
-        line-height: 1.4 !important;
     }
 
-    
-    /* --- SECCIÓN PROMESA (Sin cambios, como pediste) --- */
+    /* --- PROMESA / OFFER --- */
     .offer-content { 
         display: flex !important;
         flex-direction: column !important;
