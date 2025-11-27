@@ -263,27 +263,18 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
 .modal-body { width: 100%; }
 
 /* =========================================
-   7. RESPONSIVE DESIGN (MÓVIL)
+   7. RESPONSIVE DESIGN (MÓVIL CORREGIDO)
    ========================================= */
-
-@media (max-width: 992px) {
-    .container { padding: 0 25px; }
-    .hero-content h1 { font-size: 2.8em; }
-    .offer-content { flex-direction: column; text-align: center; padding: 40px; }
-    .offer-details { width: 100%; }
-    .offer-details ul li { justify-content: center; }
-    .final-cta-content h2 { font-size: 2.5em; }
-}
 
 @media (max-width: 768px) {
     
-    /* HEADER */
+    /* HEADER & NAV */
     header { padding: 10px 0; }
-    .logo img { height: 40px; }
+    .logo img { height: 35px; } /* Logo un poco más pequeño para dar espacio */
     nav, .header-actions .btn-demo { display: none; }
     .hamburger-menu { display: block; }
     .header-actions { margin-right: 50px; } 
-    .language-selector { margin-right: 10px; }
+    .language-selector { margin-right: 5px; }
 
     /* NAVEGACIÓN MÓVIL */
     nav.active {
@@ -297,40 +288,60 @@ footer { background: var(--color-footer-bg); color: var(--color-footer-text); pa
     nav.active ul li a { display: block; padding: 10px; font-size: 1.1rem; }
 
     /* HERO */
-    .hero { padding: 40px 0 60px; text-align: center; }
-    .hero .container { flex-direction: column; gap: 40px; }
-    .hero-content h1 { font-size: 2.2em; }
-    .hero-image { width: 100%; transform: none; margin-top: 20px; }
-    .desktop-mockup { width: 90%; }
-    .mobile-mockup { width: 90px; right: 0; bottom: -15px; }
+    .hero { padding: 30px 0 50px; text-align: center; }
+    .hero .container { flex-direction: column; gap: 30px; }
+    .hero-content h1 { font-size: 2em; line-height: 1.3; } /* Título más controlado */
+    .hero-image { width: 100%; transform: none; margin-top: 10px; }
+    .desktop-mockup { width: 100%; }
+    .mobile-mockup { width: 80px; right: 0; bottom: -10px; }
 
-    /* CARDS EN MÓVIL */
+    /* ARREGLO DE TARJETAS (CARDS) */
     .features-grid, .metrics-grid, .steps-grid, .testimonials-grid { 
-        flex-direction: column; align-items: center; gap: 25px; 
+        flex-direction: column; align-items: center; gap: 15px; margin-top: 30px;
     }
+
+    /* Regla general para todas las tarjetas en móvil */
     .feature-card, .metric-card, .step-card, .testimonial-card { 
-        width: 100%; max-width: 100%; margin: 0; 
+        width: 100% !important; 
+        max-width: 100% !important; 
+        margin: 0 !important; 
+        height: auto !important; /* Esto asegura que el texto no se salga */
+        padding: 25px 20px !important; /* MENOS Relleno (antes era 40px) */
+    }
+
+    /* ARREGLO ESPECÍFICO PARA MÉTRICAS (+200%, etc.) */
+    /* Para que no se vean tan largas hacia abajo */
+    .metric-card {
+        padding: 15px 20px !important; /* Relleno vertical muy reducido */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: auto; /* Quitar altura mínima si la hubiera */
+    }
+    .metric-card h3 {
+        font-size: 2.5em !important; /* Número un poco más pequeño */
+        margin-bottom: 5px !important; /* Menos espacio debajo del número */
+    }
+    .metric-card p {
+        font-size: 1em !important;
+        margin: 0;
     }
     
-    /* Imágenes en móvil */
-    .feature-icon { width: 60px; height: 60px; margin: 0 auto 20px auto; }
+    /* Ajuste de imágenes en móvil */
+    .feature-icon { width: 60px; height: 60px; margin: 0 auto 15px auto; padding: 8px; }
     
     /* OFFER SECTION MÓVIL */
-    .offer-content { padding: 30px 20px; gap: 30px; }
-    .offer-image img { width: 250px; }
+    .offer-content { padding: 30px 20px; gap: 30px; margin-top: 40px; }
+    .offer-image img { width: 220px; }
     .offer-details h3 { font-size: 1.2em; }
+    .offer-details ul li { font-size: 0.95em; }
 
     /* FINAL CTA MÓVIL */
     .final-cta-section { padding: 60px 0; }
-    .final-cta-content h2 { font-size: 2em; }
+    .final-cta-content h2 { font-size: 1.8em; margin-bottom: 25px; }
 
     /* FOOTER MÓVIL */
-    footer { text-align: center; }
-    .footer-content { flex-direction: column; gap: 30px; align-items: center; }
+    footer { text-align: center; padding: 40px 0 20px; }
+    .footer-content { flex-direction: column; gap: 30px; align-items: center; margin-bottom: 30px; }
     .footer-social .social-icons { justify-content: center; }
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
 }
